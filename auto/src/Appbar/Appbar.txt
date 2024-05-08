@@ -1,0 +1,336 @@
+import React, { useState, useEffect } from "react";
+import {
+  AppBar,
+  Box,
+  Button,
+  CardMedia,
+  Divider,
+  Drawer,
+  Grid,
+  IconButton,
+  Menu,
+  MenuItem,
+  Tab,
+  Tabs,
+  Toolbar,
+  useMediaQuery,
+  useScrollTrigger,
+  useTheme,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import Logo from "../Images/B.png";
+import CancelIcon from "@mui/icons-material/Cancel";
+import { useNavigate } from "react-router-dom";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
+
+const Appbar = () => {
+  const theme = useTheme();
+  const navigate = useNavigate();
+  const isMobileView = useMediaQuery(theme.breakpoints.down("sm"));
+  const isTabletView = useMediaQuery("(max-width: 1300px)");
+  const [activeTab, setActiveTab] = useState(
+    localStorage.getItem("activeTab") || "/"
+  );
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+  const [companyAnchorEl, setCompanyAnchorEl] = useState(null);
+  const [companyIcon, setCompanyIcon] = useState(<ArrowLeftIcon />);
+  const [showCompanyMenu, setShowCompanyMenu] = useState(false);
+
+  const handleCompanyTabClick = (event) => {
+    setCompanyAnchorEl(event.currentTarget);
+    setShowCompanyMenu(!showCompanyMenu);
+    setCompanyIcon(showCompanyMenu ? <ArrowLeftIcon /> : <ArrowDropDownIcon />);
+  };
+
+  const handleLogoClick = () => {
+    navigate("/");
+  };
+
+  const buttons = [
+    {
+      id: 1,
+      title: "Home",
+      path: "/",
+    },
+    {
+      id: 2,
+      title: "Services",
+      path: "/services",
+    },
+    {
+      id: 3,
+      title: "Projects",
+      path: "/projects",
+    },
+    {
+      id: 4,
+      title: "Contact Us",
+      path: "/contactUs",
+    },
+    {
+      id: 5,
+      title: "Company",
+      dropdown: true,
+      options: [
+        { id: 1, title: "About Us", path: "/company/aboutUs" },
+        { id: 2, title: "Blogs", path: "/company/blogs" },
+        { id: 3, title: "Career", path: "/company/career" },
+      ],
+    },
+  ];
+
+  const handleScroll = () => {
+    const currentScrollPos = window.pageYOffset;
+    const visible = prevScrollPos > currentScrollPos;
+
+    setPrevScrollPos(currentScrollPos);
+
+    if (currentScrollPos === 0 || visible) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll);
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, []);
+
+  const trigger = useScrollTrigger({
+    target: typeof window !== "undefined" ? window : undefined,
+    disableHysteresis: true,
+    threshold: 100,
+  });
+
+  useEffect(() => {
+    setIsVisible(false);
+  }, []);
+
+  useEffect(() => {
+    if (trigger) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  }, [trigger]);
+
+  const toggleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+  };
+
+  const handleTabChange = (newValue) => {
+    setActiveTab(newValue);
+    localStorage.setItem("activeTab", newValue);
+    navigate(newValue);
+  };
+
+  return (
+    <AppBar
+      position="static"
+      elevation={isVisible || trigger ? 12 : 0}
+      sx={{
+        backgroundColor: isVisible || trigger ? "transparent" : "transparent",
+        transition: "background 0.3s ease-in-out",
+      }}
+    >
+      <Toolbar>
+        <Grid container alignItems="center">
+          <Grid
+            item
+            xs={2}
+            sm={3}
+            md={3}
+            display="flex"
+            justifyContent="flex-start"
+            alignItems="center"
+            flexGrow={1}
+          >
+            <CardMedia
+              component="img"
+              src={Logo}
+              onClick={handleLogoClick}
+              sx={{
+                cursor: "pointer",
+                width: { md: "30%", sm: "70%", xs: "100px" },
+                ml: { md: 26, xs: 5 },
+                mt: 1.3,
+              }}
+            />
+          </Grid>
+          {(isMobileView || isTabletView) && (
+            <Grid
+              item
+              xs={10}
+              sm={7}
+              md={7}
+              display="flex"
+              justifyContent="flex-end"
+            >
+              <IconButton
+                edge="start"
+                color="primary"
+                aria-label="menu"
+                onClick={toggleDrawer}
+                sx={{ p: 0 }}
+              >
+                <MenuIcon
+                  sx={{
+                    width: "70px",
+                    height: "50px",
+                    mr: { xs: 2 },
+                  }}
+                />
+              </IconButton>
+            </Grid>
+          )}
+          {!isMobileView && !isTabletView && (
+            <Grid
+              item
+              xs={10}
+              sm={7}
+              md={7}
+              display="flex"
+              justifyContent="flex-end"
+              alignItems="center"
+              flexGrow={1}
+            >
+              {buttons.map((button) =>
+                button.dropdown ? (
+                  <Tab
+                    key={button.id}
+                    label={
+                      <div style={{ display: "flex", alignItems: "center" }}>
+                        {button.title}
+                        {button.title === "Company" && companyIcon}
+                      </div>
+                    }
+                    aria-controls={`${button.title.toLowerCase()}-dropdown`}
+                    aria-haspopup="true"
+                    onClick={handleCompanyTabClick}
+                    sx={{
+                      fontSize: "15px",
+                      fontFamily: "sans-serif",
+                      fontWeight: "bold",
+                      color: button.path === activeTab ? "#fbfcf8" : "#3384ff",
+                    }}
+                  >
+                    {button.title === "Company" && showCompanyMenu && (
+                      <Menu
+                        id={`${button.title.toLowerCase()}-dropdown`}
+                        anchorEl={companyAnchorEl}
+                        open={Boolean(companyAnchorEl)}
+                        onClose={() => {
+                          setCompanyAnchorEl(null);
+                          setShowCompanyMenu(false);
+                          setCompanyIcon(<ArrowLeftIcon />);
+                        }}
+                        anchorOrigin={{
+                          vertical: "bottom",
+                          horizontal: "center",
+                        }}
+                        transformOrigin={{
+                          vertical: "top",
+                          horizontal: "center",
+                        }}
+                      >
+                        <Box sx={{ display: "flex", flexDirection: "column" }}>
+                          {button.options.map((option) => (
+                            <MenuItem
+                              key={option.id}
+                              onClick={() => {
+                                handleTabChange(option.path);
+                                setCompanyAnchorEl(null);
+                                setShowCompanyMenu(false);
+                                setCompanyIcon(<ArrowLeftIcon />);
+                              }}
+                              sx={{ color: "black" }}
+                            >
+                              {option.title}
+                            </MenuItem>
+                          ))}
+                        </Box>
+                      </Menu>
+                    )}
+                  </Tab>
+                ) : (
+                  <Tab
+                    key={button.id}
+                    onClick={() => handleTabChange(button.path)}
+                    label={button.title}
+                    sx={{
+                      fontSize: "15px",
+                      fontFamily: "sans-serif",
+                      fontWeight: "bold",
+                      color: button.path === activeTab ? "#fbfcf8" : "#3384ff",
+                    }}
+                  />
+                )
+              )}
+            </Grid>
+          )}
+        </Grid>
+      </Toolbar>
+      <Drawer
+        anchor="right"
+        open={isDrawerOpen}
+        onClose={toggleDrawer}
+        variant="temporary"
+      >
+        <Box
+          sx={{
+            width: 250,
+            display: "flex",
+            flexDirection: "column",
+            backgroundColor: "#131E3A",
+            height: "100%",
+          }}
+        >
+          <CardMedia
+            component="img"
+            src={Logo}
+            sx={{
+              width: { md: "50%", sm: "30%", xs: "100px" },
+              ml: "auto",
+              mt: 2,
+              mb: 4,
+              mr: "auto",
+            }}
+          />
+          <IconButton
+            edge="end"
+            color="inherit"
+            onClick={toggleDrawer}
+            sx={{ position: "absolute", top: "0px", right: "13px" }}
+          >
+            <CancelIcon />
+          </IconButton>
+          {buttons.map((button) => (
+            <div key={button.id}>
+              <Button
+                onClick={() => {
+                  toggleDrawer();
+                  handleTabChange(button.path);
+                }}
+                sx={{ my: 1, color: "white" }}
+              >
+                {button.title}
+              </Button>
+              <Divider sx={{ backgroundColor: "white" }} />
+            </div>
+          ))}
+        </Box>
+      </Drawer>
+    </AppBar>
+  );
+};
+
+export default Appbar;

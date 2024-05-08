@@ -1,0 +1,123 @@
+import "./App.css";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Main from "./Layout/Main";
+import Home from "./Pages/Home";
+import About from "./Pages/AboutPage";
+import Projects from "./Pages/ProjectPage";
+import Contact from "./Pages/ContactPage";
+import ServicesComponent from "./Services/Services";
+import GlobalStyles from "./Styles/GlobalStyles";
+import ImageAnimationScroll from "./Component/FramerMotion";
+import {
+  ScrollContainer,
+  ScrollPage,
+  batch,
+  Fade,
+  FadeIn,
+  FadeOut,
+  Move,
+  MoveIn,
+  MoveOut,
+  Sticky,
+  StickyIn,
+  StickyOut,
+  Zoom,
+  ZoomIn,
+  ZoomOut,
+  Animator,
+} from "react-scroll-motion";
+import Banner from "./Component/Banner/Banner";
+import Services from "./Component/Services";
+import ParticleRing from "./Animations/ParticleRing/ParticleRing";
+import Analysis from "./Component/Analysis";
+import { useEffect, useState } from "react";
+import Review from "./Component/Review";
+import Solutions from "./Component/Solutions";
+import ScrollAnimationComponent from "./Animations/ScrollAnimationComponent/ScrollAnimationComponent";
+import FramerMotion from "./Component/FramerMotion";
+import ServicePage from "./Pages/ServicePage";
+import Blogs from "./AboutUs/Blogs/Blogs";
+import Career from "./AboutUs/Career/Career";
+const ZoomInScrollOut = batch(StickyIn(), FadeIn(), ZoomIn());
+const FadeUp = batch(Fade(), Move(), Sticky());
+
+function App() {
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY || document.documentElement.scrollTop);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <>
+      <GlobalStyles />
+      {/* <ImageAnimationScroll /> */}
+      {/* <ParticleRing /> */}
+      {/* <FramerMotion /> */}
+      {/* <ScrollAnimationComponent /> */}
+      {/* <Analysis /> */}
+
+      {/* <div style={{ position: "relative", overflow: "hidden" }}>
+        <ParticleRing />
+        <div style={{ position: "absolute", top: 0, left: 0, width: "100%" }}>
+          <Analysis style={{ opacity: scrollPosition / window.innerHeight }} />{" "}
+        </div>
+        <div
+          style={{ position: "absolute", top: "100%", left: 0, width: "100%" }}
+        >
+          <Solutions
+            style={{
+              opacity:
+                (scrollPosition - window.innerHeight) / window.innerHeight,
+            }}
+          />{" "}
+        </div>
+        <div
+          style={{ position: "absolute", top: "200%", left: 0, width: "100%" }}
+        >
+          <Review
+            style={{
+              opacity:
+                (scrollPosition - 2 * window.innerHeight) / window.innerHeight,
+            }}
+          />{" "}
+        </div>
+      </div> */}
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Main activePage={<Home />} />} />
+          <Route path="/company" element={<Main activePage={<About />} />} />
+
+          <Route
+            path="/services"
+            element={<Main activePage={<ServicePage />} />}
+          />
+          <Route
+            path="/projects"
+            element={<Main activePage={<Projects />} />}
+          />
+          <Route
+            path="/contactUs"
+            element={<Main activePage={<Contact />} />}
+          />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
+}
+
+export default App;
+
+// "@media (max-width: 1000px)": {
+//   backgroundImage: "none",
+// },
+// "@media (max-width: 1200px) ": {
+//   height: "120vh",
+//   width: "110vw",
+// },

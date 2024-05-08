@@ -1,0 +1,83 @@
+const projects = [
+    {
+      id: "01",
+      img: P1,
+      title: "Warehouse Robotics",
+      desc: "Develop an automated warehouse system with robots that can efficiently manage inventory, pick and pack orders, and optimize storage space.",
+      category: "Automation",
+    },
+    {
+      id: "02",
+      img: P2,
+      title: "Home Automation System",
+      desc: "Create a smart home system that allows users to control lighting, heating, and security remotely through a web application. Integrate IoT devices for real-time monitoring and control.",
+      category: "Automation",
+    },
+    {
+      id: "03",
+      img: P3,
+      title: "IoT Weather Station",
+      desc: "Build a weather station using IoT sensors to collect and transmit data to a web application for real-time weather monitoring and forecasting.",
+      category: "Automation",
+    },
+    {
+      id: "04",
+      img: P4,
+      title: "Industrial Automation",
+      desc: "Implement an industrial automation solution using embedded systems to control manufacturing processes and monitor equipment health through a web-based dashboard.",
+      category: "Automation",
+    },
+    {
+      id: "05",
+      img: P5,
+      title: "Smart Agriculture",
+      desc: "Create a system that combines IoT sensors, robotics, and a web application to optimize farming operations by monitoring soil conditions, irrigation, and crop health",
+      category: "Automation",
+    },
+    {
+      id: "06",
+      img: P6,
+      title: "Home Security Robot",
+      desc: "Design a robot with embedded vision capabilities for home security purposes, allowing users to control and monitor their homes remotely.",
+      category: "Automation",
+    },
+    {
+      id: "07",
+      img: P7,
+      title: "IoT-Based Healthcare",
+      desc: "Develop a healthcare system that uses IoT sensors to monitor patient health and send data to a web platform for doctors and caregivers to access.",
+      category: "Automation",
+    },
+    {
+      id: "08",
+      img: P8,
+      title: "Autonomous Delivery Drone",
+      desc: "Build an autonomous delivery drone system that uses embedded systems for navigation and a web application for tracking and managing deliveries",
+      category: "Automation",
+    },
+    {
+      id: "09",
+      img: P9,
+      title: "Greenhouse Automation",
+      desc: "Create an automated greenhouse system that regulates temperature, humidity, and irrigation using IoT sensors and a web-based control panel.",
+      category: "Automation",
+    },
+    {
+      id: "10",
+      img: P10,
+      title: "Smart Parking System",
+      desc: "Develop a smart parking solution with embedded sensors in parking spaces, providing real-time availability information through a web or mobile app.",
+      category: "Automation",
+    },
+  ];
+
+
+   <Box sx={{ backgroundColor: "#fcfdff", pt: 5 }}>
+        <Typography variant="h3" align="center">
+          Explore Our Portfolio
+        </Typography>
+        <Typography variant="h6" align="center">
+          Discover a diverse range of innovative solutions crafted to meet your
+          needs.
+        </Typography>
+      </Box>

@@ -1,0 +1,128 @@
+import React from "react";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  Typography,
+  useTheme,
+} from "@mui/material";
+import BannerImage from "./BannerImage";
+import B from "../../Images/Banner/b7.mp4";
+
+const BackgroundVideo = ({ videoSrc, children }) => {
+  return (
+    <Box sx={{ position: "relative", height: "100vh", overflow: "hidden" }}>
+      <video
+        autoPlay
+        loop
+        muted
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          zIndex: -1,
+          opacity: 1,
+          filter: "brightness(70%)",
+          position: "absolute",
+          top: 0,
+          left: 0,
+        }}
+      >
+        <source src={videoSrc} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      {children}
+    </Box>
+  );
+};
+
+const Banner = () => {
+  const theme = useTheme();
+  const videoSrc = B;
+
+  return (
+    <Box sx={{ mt: -11 }}>
+      <BackgroundVideo videoSrc={videoSrc}>
+        <Container>
+          <Grid
+            container
+            spacing={4}
+            alignItems="center"
+            sx={{ height: "100%" }}
+          >
+            <Grid item xs={12} md={6}>
+              <Typography
+                variant="h2"
+                gutterBottom
+                align="left"
+                sx={{
+                  mt: { md: 12, xs: 14 },
+                  color: "white",
+                  // fontFamily: "inherit",
+                  // fontSize: "36px",
+                  fontWeight: 600,
+                }}
+              >
+                ENTER THE WORLD OF INFINITE POSSIBILITIES
+                {/* <b>OUR</b> passionate engineers <b>bring</b> */}
+              </Typography>
+              {/* <Typography
+                variant="body1"
+                paragraph
+                align="left"
+                sx={{
+                  fontWeight: 340,
+                  color: "whitesmoke",
+                  fontFamily: "inherit",
+                }}
+              >
+                AUTOROBS stands at the forefront of technology, seamlessly
+                blending innovation and automation to propel businesses into the
+                future. Our expertise spans IoT services, robotics, embedded
+                design, and artificial intelligence, providing comprehensive
+                solutions for a digitally transformed world.
+              </Typography> */}
+              <Box
+                sx={{ display: "flex", justifyContent: "flex-start", mt: 5 }}
+              >
+                <Button
+                  variant="contained"
+                  color="primary"
+                  href="#explore"
+                  size="large"
+                  sx={{
+                    marginRight: 2,
+                    "&:hover": { backgroundColor: "#FF7A41" },
+                  }}
+                >
+                  Explore
+                </Button>
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  href="#request-demo"
+                  size="large"
+                  sx={{
+                    "&:hover": {
+                      backgroundColor: "#913BFF",
+                      color: "white",
+                      border: "none",
+                    },
+                  }}
+                >
+                  Request a Demo
+                </Button>
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <BannerImage />
+            </Grid>
+          </Grid>
+        </Container>
+      </BackgroundVideo>
+    </Box>
+  );
+};
+
+export default Banner;
