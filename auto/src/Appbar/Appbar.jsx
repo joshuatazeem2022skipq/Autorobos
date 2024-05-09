@@ -110,10 +110,11 @@ const MyAppBar = () => {
   }, [location.hash]);
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "transparent" }}>
+    <AppBar position="static" sx={{height:"90px",boxShadow: "none!important" , paddingTop: 2, backgroundColor: "transparent" }}>
       <Toolbar
         sx={{
           justifyContent: "center",
+          
           "@media (max-width: 600px)": {
             flexDirection: "column",
           },
@@ -124,7 +125,7 @@ const MyAppBar = () => {
             <IconButton
               color="inherit"
               aria-label="menu"
-              sx={{ ml: { md: 24, xs: 0, sm: 0 } }}
+              sx={{ ml: { md: 11, xs: 0, sm: 0 } }}
             >
               <CardMedia
                 onClick={handleLogoClick}
@@ -165,8 +166,8 @@ const MyAppBar = () => {
               item
               xs={8}
               sm={8}
-              md={8}
-              sx={{ textAlign: "center", ml: 30 }}
+              md={5}
+              sx={{border: "2px solid #303030", borderStyle: "solid",borderRadius:15, textAlign: "center", paddingX: 1,padding: 1,ml: 23 }}
             >
               {buttons.map((button) => (
                 <React.Fragment key={button.id}>
@@ -177,9 +178,14 @@ const MyAppBar = () => {
                         aria-haspopup="true"
                         onClick={(event) => handleMenuToggle(button.id, event)}
                         sx={{
+                          borderRadius: 9,
                           color: anchorEl === button.id ? "#5497ff" : "white",
                           textTransform: "capitalize",
                           fontSize: "1.2rem",
+                          "&:hover": {
+                            backgroundColor: "#0ba7aa",
+                            color: "white",
+                          },
                         }}
                       >
                         {companyButtonText}
@@ -216,10 +222,16 @@ const MyAppBar = () => {
                       component={Link}
                       to={button.path}
                       sx={{
+                        borderRadius: 9,
+                        padding:1,
                         textTransform: "capitalize",
-                        color: anchorEl === button.id ? "#5497ff" : "white",
+                        color: anchorEl === button.id ? "#0ba7aa" : "white",
                         marginRight: 2,
                         fontSize: "1.1rem",
+                        "&:hover": {
+                          backgroundColor: "#0ba7aa",
+                          color: "white",
+                        },
                       }}
                       onClick={() => handleMenuToggle(button.id)}
                     >
@@ -236,23 +248,25 @@ const MyAppBar = () => {
               xs={2}
               sm={2}
               md={2}
-              sx={{ textAlign: "end", ml: { md: -50, sm: -12 } }}
+              sx={{ textAlign: "end", ml: { md: 20, sm: -12 } }}
             >
               <Button
                 color="error"
+
                 component={Link}
                 to="/contactUs"
                 sx={{
                   textTransform: "capitalize",
-                  color: "white",
-                  width: "130px",
-                  backgroundColor: "red",
-                  marginLeft: 2,
+                  color: "white",border: "2px solid #303030",                 
+                   width: "130px",
+                  borderRadius: 7,
+                  backgroundColor: "transparent",
+                  marginLeft: 1,
                   fontSize: "1.2rem",
                   transition: "background-color 0.4s, color 0.3s",
                   "&:hover": {
-                    backgroundColor: "white",
-                    color: "black",
+                    backgroundColor: "#0ba7aa",
+                    color: "white",
                   },
                 }}
               >
@@ -293,7 +307,7 @@ const MyAppBar = () => {
               ml: "auto",
               mt: 2,
               mb: 4,
-              mr: "auto",
+              mr: 10,
             }}
           />
           <IconButton

@@ -57,6 +57,7 @@ const PaperBlock = ({ title, description, bgImage }) => (
   <Paper
     sx={{
       padding: 2,
+    
       backgroundImage: `url(${bgImage})`,
       backgroundSize: "cover",
       height: 300,
@@ -81,7 +82,7 @@ const PaperBlock = ({ title, description, bgImage }) => (
 );
 
 const MainPage = () => (
-  <Box sx={{ backgroundColor: "#f1f4f7", mt: { md: -11, sm: -11, xs: 0 } }}>
+  <Box sx={{ backgroundColor: "#f1f4f7", mt: { md: 0, sm: -11, xs: 0 } }}>
     <Container>
       <Typography
         variant="h3"

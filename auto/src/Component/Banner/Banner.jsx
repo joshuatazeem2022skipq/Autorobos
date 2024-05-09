@@ -64,7 +64,7 @@ const Banner = () => {
             container
             spacing={isSmallScreen ? 2 : 4}
             alignItems="center"
-            sx={{ minHeight: "100vh" }}
+            sx={{ minHeight: "100%" }}
           >
             <Grid item xs={12} md={6}>
               <Typography
@@ -85,18 +85,23 @@ const Banner = () => {
               <Box
                 sx={{
                   display: "flex",
+                  paddingBottom: 5,
                   justifyContent: isSmallScreen ? "center" : "flex-start",
                   mt: isSmallScreen ? 3 : 5,
                 }}
               >
                 <Button
                   variant="contained"
+                  
                   color="primary"
                   size={isSmallScreen ? "medium" : "large"}
                   onClick={handleClickProjects}
                   sx={{
+                    backgroundColor : "transparent!important",
                     marginRight: isSmallScreen ? 0 : 2,
-                    "&:hover": { backgroundColor: "#FF7A41" },
+                    border: "2px solid #303030",
+                    borderRadius: 13,
+                    "&:hover": { backgroundColor: "#5494ff!important" },
                   }}
                 >
                   Explore
@@ -110,6 +115,7 @@ const Banner = () => {
               <BannerImage />
             </Grid>
           </Grid>
+
         </Container>
       </BackgroundVideo>
     </Box>
