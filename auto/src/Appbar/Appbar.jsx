@@ -110,7 +110,7 @@ const MyAppBar = () => {
   }, [location.hash]);
 
   return (
-    <AppBar position="static" sx={{height:"90px",boxShadow: "none!important" , paddingTop: 2, backgroundColor: "transparent" }}>
+    <AppBar position="static" sx={{height:"90px",boxShadow: "none!important" , paddingTop: 2, backgroundColor: "transparent" , border: "none"}}>
       <Toolbar
         sx={{
           justifyContent: "center",
@@ -167,7 +167,7 @@ const MyAppBar = () => {
               xs={8}
               sm={8}
               md={5}
-              sx={{border: "2px solid #303030", borderStyle: "solid",borderRadius:15, textAlign: "center", paddingX: 1,padding: 1,ml: 23 }}
+              sx={{border: "2px solid #303030", borderStyle: "solid",borderRadius:15, textAlign: "center", paddingX: 1,padding: 1,ml: 13 }}
             >
               {buttons.map((button) => (
                 <React.Fragment key={button.id}>
