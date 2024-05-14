@@ -1,13 +1,16 @@
 import React from "react";
-import Services from "../Services/Services";
+import Services from "../Component/Services";
+
 // import ServicesExp from "../Services/ServicesExp";
+import ServiceComponent from './../Services/Services';
+import { Box } from "@mui/system";
 
 const ServicePage = () => {
   return (
-    <>
-      <Services />
+    <Box sx={{backgroundColor:"#0b0c10"}}>
+    <ServiceComponent></ServiceComponent>
       {/* <ServicesExp /> */}
-    </>
+    </Box>
   );
 };
 

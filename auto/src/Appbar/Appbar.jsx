@@ -179,7 +179,7 @@ const MyAppBar = () => {
                         onClick={(event) => handleMenuToggle(button.id, event)}
                         sx={{
                           borderRadius: 9,
-                          color: anchorEl === button.id ? "#5497ff" : "white",
+                          color: anchorEl === button.id ? "#0ba7a2" : "white",
                           textTransform: "capitalize",
                           fontSize: "1.2rem",
                           "&:hover": {

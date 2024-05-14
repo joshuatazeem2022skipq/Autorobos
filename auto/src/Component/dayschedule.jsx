@@ -36,7 +36,7 @@ export default class DayScheduleButton extends React.Component {
           borderRadius: 13,
           "&:hover": {
             color: "white",
-            backgroundColor:"#5494ff"
+            backgroundColor:"#0ba7a2"
           },
         }}
       >

@@ -48,10 +48,12 @@ const Solutions = () => {
             label="BEST AUTOMATION SOLUTION"
             variant="outlined"
             sx={{
-              backgroundColor: "#e6ecff",
-              color: "#5497ff",
+              backgroundColor: "#0ba7a2",
+              color: "white",
               fontWeight: "bold",
               letterSpacing: 1.5,
+              borderRadius:17,
+              padding: 3,
               border: "none",
               mt: { md: 5, xs: 16 },
               mb: 2,

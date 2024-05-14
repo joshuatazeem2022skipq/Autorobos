@@ -7,7 +7,12 @@ import {
   Container,
   AccordionDetails,
   AccordionSummary,
+  IconButton,
+  CardActions,
   Accordion,
+  Slide,
+  Avatar,
+  Stack,
   Card,
   CardContent,
   CardMedia,
@@ -15,15 +20,17 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 // import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 // import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
-import { content, initialServicesData } from "./servicesData";
+// import { content, initialServicesData } from "./servicesData";
 import b1 from "../Images/Services/exp/Ai/ils_20.png";
+import BgImage from "../Images/Projects/p3.jpg"
+import { useSelector } from "react-redux";
 // import b2 from "../Images/Services/exp/Services Content/A.jpg";
 import b3 from "../Images/Services/exp/Ai/shape_48.png";
 import { styled } from "@mui/system";
 
 const mainDiv = {
   position: "relative",
-  backgroundColor: "#1a1a1a",
+  backgroundColor: "#0b0c10",
   minHeight: "100vh",
   width: "100%",
   marginBottom: "10px",
@@ -40,21 +47,22 @@ const Acc1 = {
   marginBottom: "10px",
   p: "10px",
   border: "1px solid #81b0ed",
-  borderRadius: "10px",
-  backgroundColor: "#1a1a1a",
+  borderRadius: "20px",
+  backgroundColor: "#0b0c10"
 };
 const box1 = {
   display: "flex",
   justifyContent: "flex-start",
 };
 const button = {
-  color: "whitesmoke",
-  border: "1px solid gray",
-  mt: 2,
+  backgroundColor: "#0ba7a2",
+  border: "1px solid #303030",
+  borderRadius: 13,
+  mt: 3,
+  color: "white",
   "&:hover": {
-    color: "white",
-    backgroundColor: "#81b0ed",
-    border: "1px solid white",
+    backgroundColor: "white!important",
+    color: "#0ba7a2",
   },
 };
 const main2 = {
@@ -70,27 +78,6 @@ const box2 = {
   maxHeight: "80%",
   position: "relative",
 };
-// const div1 = {
-//   position: "absolute",
-//   bottom: 14,
-//   left: 0,
-//   right: 0,
-//   display: "flex",
-//   justifyContent: "center",
-// };
-// const div2 = {
-//   position: "relative",
-//   backgroundColor: "#f1f4f7",
-//   height: "150.2vh",
-//   overflow: "hidden",
-// };
-// const containerStyle = {
-//   position: "absolute",
-//   top: "50%",
-//   left: "50%",
-//   transform: "translate(-50%, -50%)",
-//   textAlign: "center",
-// };
 
 const StyledCard = styled(Card)({
   overflow: "hidden",
@@ -117,13 +104,18 @@ const StyledCardMedia = styled(CardMedia)({
 
 const ServiceComponent = () => {
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
-  const [servicesData, setServicesData] = useState(initialServicesData);
+  const intialServicesData = useSelector((store)=>store.ServiceSection.initialServicesData)
+  const [servicesData, setServicesData] = useState(intialServicesData);
+  const [hoveredCard, setHoveredCard] = useState(null);
   const [isDetailViewActive, setIsDetailViewActive] = useState(false);
   const [activeServiceIndex, setActiveServiceIndex] = useState(null);
   const [expanded, setExpanded] = useState(`panel0`);
   const [isPanelExpanding, setIsPanelExpanding] = useState(false);
   const detailViewRef = useRef(null);
 
+  const data = useSelector((store)=>store.CardSection.Cards)
+  const content = useSelector((store)=>store.ServiceContentSection.content)
+ 
   console.log(setServicesData);
   // const mergedArray = serviceName.map((service, index) => ({
   //   ...content1[index],
@@ -185,13 +177,187 @@ const ServiceComponent = () => {
   };
 
   return (
-    <>
-      <div style={mainDiv}>
+    <Box sx={{backgroundColor:"#0b0c10"}}>
+<Box sx={{
+         background: `linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(${BgImage})`,
+        height: "60vh",
+        mt:5,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center", // Align text to the left
+        textAlign: "left", // Align children text to the left
+      }}>
+        <Typography color="white" variant= "h2" sx={{fontWeight: "bold"}} >
+          Services
+        </Typography>
+      </Box>
+  
+    
+          <Container>
+            <Grid container spacing={2} sx={{ mt: { md: 0, xs: 0 } }}>
+              {data.map((card, index) => (
+                <Grid item xs={12} sm={6} md={4} key={index}>
+                  <Card  
+  onMouseEnter={() => setHoveredCard(index)}
+  onMouseLeave={() => setHoveredCard(null)}
+                    variant="outlined"
+                    sx={{
+                      height: "300px",
+                      width: "97%",
+                      
+                      boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+                      borderRadius: "10px",
+                      border: "2px solid #303030",
+                      mt: 3,
+                      ml: { xs: 1 },
+        backgroundColor:'#0b0c10',
+                      transform: "scale(1)",
+                      transition: "transform 0.3s ease",
+                      "&:hover": {
+                        // transform: "scale(1.05)",
+                        transition: "opacity 0.3s ease",
+                        border: "1px solid #0ba7a2"
+                      },
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        position: "relative",
+                        zIndex: 4,
+                        height: "100%",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-between",
+                        padding: 2,
+                      }}
+                    >
+                      
+                        <Grid
+                          container
+                          direction="column"
+                          justifyContent="flex-start"
+                          alignItems="center"
+                          spacing={1}
+                        >
+                        
+                           <Grid item>
+                           {hoveredCard !== index ? (
+                            <Avatar
+                              sx={{
+                                background: "#0ba7a2",
+                                mt: 1,
+                                color: "#0ba7a2",
+                                height: 70,
+                                width: 70,
+                                filter: "brightness(150%)",
+                              }}
+                            >
+                              {card.icon}
+                            </Avatar>
+                          ) : null}
+                         </Grid>
+                        
+                          
+                          <Grid item>
+                            <Typography
+                              variant="h5"
+                              sx={{ mt: 1, color: "white" }}
+                            >
+                              {card.title}
+                            </Typography>
+                          </Grid>
+                          <Grid item>
+                            <Typography
+                              variant="body1"
+                              align="center"
+                              color={"grey"}
+                            >
+                              {card.description}
+                            </Typography>
+                          </Grid>
+                          {/* {hover? */}
+                          <Grid item>
+                          {hoveredCard === index ? (
+                          <CardActions sx={{ mt: 2 }}>
+                            {card.actions.map((action, index) => (
+                              <IconButton
+                                key={index}
+                                sx={{
+                              
+                                  color: "#0ba7a2",
+                                  "&:hover": { color: "#0066ff" },
+                                }}
+                              >
+                               See Details {action}
+                              </IconButton>
+                            ))}
+                          </CardActions>
+                           ) : null}
+                        </Grid>
+                        {/* // :null
+                        // } */}
+                          
+                        </Grid>
+                  
+                    </Box>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+          </Container>
+    
+            <Box
+    sx={{
+      height: { md: 350, xs: 2360, sm: 1100 },
+      minWidth: "100%",
+      background: `linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(${BgImage})`,
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center",
+      backgroundAttachment: "fixed", 
+      position: "relative",
+      zIndex: 1,
+      mt: { md: 15, xs: 0 },
+    }}
+  >
+    <Grid container alignItems="center" justifyContent="center">
+      <Grid item xs={12} sm={8} md={7} sx={{mt:13}} alignItems="center" textAlign="center">
+        <Typography variant="h3" fontWeight="bold" sx={{ color: "white", textAlign: "center"}}>
+          Wanna See Our Latest Works?
+        </Typography>
+        <Typography variant="body1" sx={{ color: "grey",mt:3 }}>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo delectus
+          possimus vitae dignissimos esse voluptatem commodi adipisci!
+        </Typography>
+        <Button
+          sx={{
+            backgroundColor: "#0ba7a2",
+            border: "1px solid #303030",
+            borderRadius: 13,
+            padding:2,
+            color: "white", 
+            mt: 2,
+            "&:hover": {
+              backgroundColor: "white!important",
+              color: "#0ba7a2",
+            },
+          }}
+        >
+          All Projects
+        </Button>
+      </Grid>
+    </Grid>
+  </Box>
+
+  <div style={mainDiv}>
         <Grid container spacing={0} style={{ height: "100%" }}>
           <Grid item xs={12} sm={6} sx={main}>
-            <Container>
-              {initialServicesData.map((service, index) => (
-                <Accordion
+            <Container sx={{marginTop:"65px",}}>
+              {intialServicesData.map((service, index) => (
+                <Accordion 
                   key={index}
                   expanded={expanded === `panel${index}`}
                   onChange={handleChange(`panel${index}`)}
@@ -238,7 +404,7 @@ const ServiceComponent = () => {
           </Grid>
         </Grid>
 
-        {/* <div style={div1}>
+     {/* <div style={div1}>
           <Button
             style={{
               marginRight: 10,
@@ -264,7 +430,7 @@ const ServiceComponent = () => {
           >
             <ArrowCircleRightIcon />
           </Button>
-        </div> */}
+        </div>   */}
       </div>
       {isDetailViewActive && (
         <div ref={detailViewRef}>
@@ -503,8 +669,62 @@ const ServiceComponent = () => {
             </Grid>
           </div>
         </div>
-      )}
-    </>
+      )} 
+
+
+<Box sx={{ backgroundColor: "#0b0c10", mb:1 }}>
+      <Container
+        sx={{
+          backgroundImage: `url(${BgImage})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          border: "1px solid #303030",
+          backgroundAttachment: "fixed", // Make background image fixed
+          height: "60vh",
+          mt:10,
+          "@media (max-width: 600px)": {
+            height: "79vh",
+            ml: 1,
+           
+          },
+          minWidth: "90%",
+          borderRadius: 7,
+          py: 4,
+        }}
+      >
+        <Grid container sx={{ mt: 0 }}>
+        <Grid container alignItems="center" justifyContent="center">
+      <Grid item xs={12} sm={8} md={12} sx={{mt:13}} alignItems="center" textAlign="center">
+        <Typography variant="h3" fontWeight="bold" sx={{ color: "white", textAlign: "center"}}>
+          Lets Create Something Great Together?
+        </Typography>
+        <Typography variant="body1" sx={{ color: "grey",mt:3 }}>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo delectus
+          possimus vitae dignissimos esse voluptatem commodi adipisci!
+        </Typography>
+        <Button
+          sx={{
+            backgroundColor: "#0ba7a2",
+            border: "1px solid #303030",
+            borderRadius: 13,
+            padding:2,
+            color: "white", 
+            mt: 2,
+            "&:hover": {
+              backgroundColor: "white!important",
+              color: "#0ba7a2",
+            },
+          }}
+        >
+          Make Inquiry
+        </Button>
+      </Grid>
+    </Grid>
+          
+        </Grid>
+      </Container>
+    </Box>
+    </Box>
   );
 };
 

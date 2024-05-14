@@ -43,11 +43,13 @@ const Text = [
 function Quality() {
   return (
     <>
-      <Box sx={{ backgroundColor: "#f1f4f7", mt: { md: -9.5, xs: 0, sm: 0 } }}>
+      <Box sx={{ mt: { md: -9.5, xs: 0, sm: 0 } }}>
         <Box
           sx={{
+           
             minHeight: { md: "60vh", xs: "100vh", sm: "90vh" },
             py: 4,
+            backgroundColor: "#0b0c10",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -55,15 +57,17 @@ function Quality() {
         >
           <Card
             sx={{
-              boxShadow: 20,
+              backgroundColor: "#1a1a1a",  
+              boxShadow: "10px solid white",
+              border: "1px solid #303030",
+              boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
               height: { md: 270, xs: "100vh", sm: "80vh" },
-              width: { md: "74%", sm: "40%", xs: "70%" },
-              background: "white",
+              width: { md: "74%", sm: "70%", xs: "80%" },
               position: "absolute",
               zIndex: 4,
               borderRadius: "30px",
               "@media (max-width: 600px)": {
-                height: "100vh",
+                height: "79vh",
                 mt: 6,
                 position: "absolute",
                 zIndex: 4,
@@ -91,7 +95,7 @@ function Quality() {
                     >
                       <Avatar
                         sx={{
-                          backgroundColor: text.backgroundColor,
+                          backgroundColor: "#0ba7a2",
                           color: text.color,
                         }}
                       >
@@ -103,6 +107,7 @@ function Quality() {
                       variant="h6"
                       sx={{
                         mt: 2,
+                        color: "white!important",
                         fontFamily: "revert-layer",
                         textAlign: "center",
                       }}

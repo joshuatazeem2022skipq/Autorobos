@@ -40,13 +40,15 @@ function ScrollAnimationComponent() {
         }}
       />
       <div style={{ position: "relative", zIndex: 1 }}>
-        <motion.div
+        {/* <motion.div
           style={{ x }}
           initial={{ x: -150 }}
           animate={{ x: animationTriggered ? -50 : -150 }}
-        >
+        > */}
+        <Box sx={{marginTop: -40}}>
           <Analysis />
-        </motion.div>
+          </Box>
+        {/* </motion.div> */}
 
         <motion.div
           style={{ x }}

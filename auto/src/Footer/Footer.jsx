@@ -2,8 +2,11 @@ import React from "react";
 import { Box, Container, Grid, Typography, Link, Divider } from "@mui/material";
 import { Facebook, LinkedIn, Instagram } from "@mui/icons-material";
 import Logo from "../Images/B.png";
+import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import { useNavigate } from "react-router-dom";
-
+import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
 const Footer = () => {
   const navigate = useNavigate();
 
@@ -31,7 +34,8 @@ const Footer = () => {
   return (
     <Box
       sx={{
-        bgcolor: "#1a1a1a",
+        mt:18,
+         backgroundColor: "#0b0c10",
         color: "white",
         py: 4,
         display: "flex",
@@ -41,108 +45,43 @@ const Footer = () => {
       }}
     >
       <Container maxWidth="lg">
-        <Divider
-          sx={{ width: "100%", borderBottom: "1px solid GrayText", mb: 3 }}
-        />
+       
 
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              <Typography variant="h6" gutterBottom align="center">
-                Get connected with us on social networks:
-              </Typography>
-              <Box sx={{ display: "flex", gap: 2, mt: 2, mb: 2 }}>
-                <Link href="#" color="inherit">
-                  <Facebook />
-                </Link>
-                {/* <Link href="#" color="inherit">
-                  <Twitter />
-                </Link> */}
-                {/* <Link href="#" color="inherit">
-                  <Google />
-                </Link> */}
-                <Link href="#" color="inherit">
-                  <LinkedIn />
-                </Link>
-                <Link href="#" color="inherit">
-                  <Instagram />
-                </Link>
-              </Box>
-            </Box>
-          </Grid>
-          {/* <Grid item xs={12}>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: { xs: "column", sm: "row" },
-                alignItems: "center",
-                mb: 5,
-              }}
-            >
-              <Typography
-                variant="h6"
-                gutterBottom
-                sx={{
-                  flexShrink: 0,
-                  width: { xs: "100%", sm: "auto" }, 
-                  mr: { xs: 0, sm: 2 }, 
-                  mb: { xs: 2, sm: 0 },
-                }}
-              >
-                Sign up for our newsletter
-              </Typography>
-              <TextField
-                variant="outlined"
-                size="small"
-                label="Email address"
-                fullWidth
-                sx={{
-                  flexGrow: 1,
-                  bgcolor: "white",
-                  mb: { xs: 2, sm: 0 },
-                }}
-              />
-              <Button
-                variant="contained"
-                color="secondary"
-                sx={{
-                  flexShrink: 0,
-                  width: { xs: "100%", sm: "auto" },
-                }}
-              >
-                Subscribe
-              </Button>
-            </Box>
-          </Grid> */}
-        </Grid>
-
-        <Divider
-          sx={{ width: "100%", borderBottom: "1px solid GrayText", mb: 3 }}
-        />
+        
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6} md={3}>
             <Box pr={2}>
-              <img src={Logo} alt="Company Logo" style={{ width: "30%" }} />
-              <Typography variant="body2" paragraph>
-                Autorobos delivers automation and digital marketing services to
-                enhance your business and online reach. We can handle any
-                project from chatbots to web scrapers to social media campaigns.
-                Contact us today and let us show you the benefits of automation
-                and digital marketing.
+              <img src={Logo} alt="Company Logo" style={{ width: "40%" , ml: "15px" }} />
+              <Typography fontWeight="medium" variant="body1" paragraph color="white">
+                More than a Software House   
+              </Typography>
+            </Box>
+          </Grid>
+
+          <Grid item xs={12} sm={6} md={3}>
+            <Box pl={1}>
+              <Typography fontWeight="bold" color="white" variant="h6" gutterBottom>
+                Contact Us
+              </Typography>
+              <Typography fontWeight="bold" color="whitesmoke" component="div" display="block">
+              <LocationOnOutlinedIcon  sx={{color: "#0ba7a2"}}/>  Office 131 1st Floor, Center Point Plaza Kohinoor, Faisalabad.
+              </Typography>
+              <Typography fontWeight="bold"  color="whitesmoke"  component="div" display="block">
+                <LocalPhoneOutlinedIcon sx={{color: "#0ba7a2"}}/> (+92) 321 786 4079
+              </Typography>
+              <Typography fontWeight="bold" color="whitesmoke"  component="div" display="block">
+                <MailOutlineOutlinedIcon sx={{color: "#0ba7a2"}}/> sales@autorobos.com
+              </Typography>
+              <Typography fontWeight="bold" color="whitesmoke"  component="div" display="block">
+                <CalendarMonthOutlinedIcon sx={{color: "#0ba7a2"}}/> Monday to Friday
               </Typography>
             </Box>
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
             <Box sx={{ px: { xs: 1, md: 8 } }}>
-              <Typography variant="h6" gutterBottom>
-                Products
+              <Typography fontWeight="bold" color="white" variant="h6" gutterBottom>
+                Quick Links
               </Typography>
               <Typography
                 variant="body2"
@@ -150,8 +89,10 @@ const Footer = () => {
                 onClick={handleHome}
                 sx={{
                   cursor: "pointer",
+                  fontWeight: "bold",
+                  color:"whitesmoke",
                   "&:hover": {
-                    color: "#5497ff",
+                    color:"#0ba7a2",
                     transition: "color 0.3s ease",
                   },
                 }}
@@ -163,9 +104,11 @@ const Footer = () => {
                 paragraph
                 onClick={handleAboutUs}
                 sx={{
+                  color:"whitesmoke",
                   cursor: "pointer",
+                  fontWeight: "bold",
                   "&:hover": {
-                    color: "#5497ff",
+                    color:"#0ba7a2",
                     transition: "color 0.3s ease",
                   },
                 }}
@@ -177,9 +120,11 @@ const Footer = () => {
                 paragraph
                 onClick={handleProjects}
                 sx={{
+                  color:"whitesmoke",
                   cursor: "pointer",
+                  fontWeight: "bold",
                   "&:hover": {
-                    color: "#5497ff",
+                    color:"#0ba7a2",
                     transition: "color 0.3s ease",
                   },
                 }}
@@ -191,9 +136,11 @@ const Footer = () => {
                 paragraph
                 onClick={handleContactUs}
                 sx={{
+                  color:"whitesmoke",
                   cursor: "pointer",
+                  fontWeight: "bold",
                   "&:hover": {
-                    color: "#5497ff",
+                    color:"#0ba7a2",
                     transition: "color 0.3s ease",
                   },
                 }}
@@ -204,60 +151,39 @@ const Footer = () => {
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <Box px={1}>
-              <Typography variant="h6" gutterBottom>
-                Useful Links
+            <Box px={1} >
+              <Typography fontWeight="bold" color="white" variant="h6" gutterBottom>
+                Our Services
               </Typography>
               <Typography
                 component="div"
                 display="block"
                 onClick={handleservices}
                 sx={{
+                  m:1,
+                  color:"whitesmoke",
                   cursor: "pointer",
+                  fontWeight: "bold",
                   "&:hover": {
-                    color: "#5497ff",
+                    color:"#0ba7a2",
                     transition: "color 0.3s ease",
                   },
                 }}
               >
                 Robotics
               </Typography>
+                
               <Typography
                 component="div"
                 display="block"
                 onClick={handleservices}
                 sx={{
+                  m:1,
+                  color:"whitesmoke",
                   cursor: "pointer",
+                  fontWeight: "bold",
                   "&:hover": {
-                    color: "#5497ff",
-                    transition: "color 0.3s ease",
-                  },
-                }}
-              >
-                Automatics
-              </Typography>
-              <Typography
-                component="div"
-                display="block"
-                onClick={handleservices}
-                sx={{
-                  cursor: "pointer",
-                  "&:hover": {
-                    color: "#5497ff",
-                    transition: "color 0.3s ease",
-                  },
-                }}
-              >
-                Internet of Things
-              </Typography>
-              <Typography
-                component="div"
-                display="block"
-                onClick={handleservices}
-                sx={{
-                  cursor: "pointer",
-                  "&:hover": {
-                    color: "#5497ff",
+                    color:"#0ba7a2",
                     transition: "color 0.3s ease",
                   },
                 }}
@@ -269,9 +195,12 @@ const Footer = () => {
                 display="block"
                 onClick={handleservices}
                 sx={{
+                  m:1,
+                  color:"whitesmoke",
                   cursor: "pointer",
+                  fontWeight: "bold",
                   "&:hover": {
-                    color: "#5497ff",
+                    color:"#0ba7a2",
                     transition: "color 0.3s ease",
                   },
                 }}
@@ -283,9 +212,12 @@ const Footer = () => {
                 display="block"
                 onClick={handleservices}
                 sx={{
+                  m:1,
+                  color:"whitesmoke",
                   cursor: "pointer",
+                  fontWeight: "bold",
                   "&:hover": {
-                    color: "#5497ff",
+                    color:"#0ba7a2",
                     transition: "color 0.3s ease",
                   },
                 }}
@@ -295,28 +227,54 @@ const Footer = () => {
             </Box>
           </Grid>
 
-          <Grid item xs={12} sm={6} md={3}>
-            <Box pl={1}>
-              <Typography variant="h6" gutterBottom>
-                Contact
-              </Typography>
-              <Typography component="div" display="block">
-                Office 131 1st Floor, Center Point Plaza Kohinoor, Faisalabad.
-              </Typography>
-              <Typography component="div" display="block">
-                (+92) 321 786 4079
-              </Typography>
-              <Typography component="div" display="block">
-                sales@autorobos.com
-              </Typography>
-            </Box>
-          </Grid>
+        
         </Grid>
-        <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
+
+        <Divider
+          sx={{ width: "100%", borderBottom: "1px solid GrayText", mb: 3,mt:10 }}
+        />
+
+      
+        <Box gap={4} sx={{ display: "flex", justifyContent: "flex-start", mt: 4 }}>
+        <Typography variant="body2" align="start">
+           Privacy Policy
+          </Typography>
+           <Typography variant="body2" align="center">
+           Terms of use
+          </Typography>
           <Typography variant="body2" align="center">
             © 2024 Copyright: autorobos.com
           </Typography>
         </Box>
+
+          <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <Box
+              sx={{
+                display: "flex",
+                
+                alignItems: "center",
+              }}
+            >
+              <Typography variant="h6" gutterBottom align="center">
+                Get connected with us on social networks:
+              </Typography>
+              <Box sx={{ display: "flex", gap: 2, mt: 2, mb: 2, ml:70 }}>
+                <Link href="#" color="#0ba7a2">
+                  <Facebook />
+                </Link>
+                
+                <Link href="#" color="#0ba7a2">
+                  <LinkedIn />
+                </Link>
+                <Link href="#" color="#0ba7a2">
+                  <Instagram />
+                </Link>
+              </Box>
+            </Box>
+          </Grid>
+        
+        </Grid>
       </Container>
     </Box>
   );

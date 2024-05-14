@@ -16,6 +16,7 @@ import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArro
 import A1 from "../Images/Analysis/ils_05.png";
 import A2 from "../Images/Analysis/ils_05_1.png";
 import "../Styles/Gobal.css";
+import { Link } from "react-router-dom";
 
 const ListText = [
   { id: 1, title: "Various analysis options." },
@@ -71,10 +72,12 @@ const Analysis = () => {
             variant="outlined"
             alignItems="flex-st34art"
             sx={{
-              backgroundColor: "#e6ecff",
-              color: "#5497ff",
+              backgroundColor: "#0ba7a2",
+              color: "white",
               fontWeight: "bold",
               letterSpacing: 1.5,
+              borderRadius: 17,
+              padding: 3,
               border: "none",
               mt: { md: 0 },
               alignSelf: "lef   t",
@@ -123,7 +126,7 @@ const Analysis = () => {
             >
               {ListText.map((item) => (
                 <ListItem key={item.id}>
-                  <ListItemIcon sx={{ color: "HighlightText" }}>
+                  <ListItemIcon sx={{ color: "#0ba7a2" }}>
                     <CheckIcon />
                   </ListItemIcon>
                   <ListItemText>
@@ -154,16 +157,21 @@ const Analysis = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={12} sm={3}>
+                  <Link to="/company#aboutus">
                   <Button
                     variant="outlined"
                     sx={{
-                      color: "#5497ff",
+                      borderRadius:15,
+                      border: "1px solid #303030",
+                      color: "#0ba7a2",
                       mt: 2,
-                      "&:hover": { color: "#FF7A41" },
+                      "&:hover": { backgroundColor: "#0ba7a2", color: "white" },
                     }}
                   >
                     Click Here <KeyboardDoubleArrowRightIcon />
+
                   </Button>
+                  </Link>
                 </Grid>
               </Grid>
             </Box>

@@ -7,6 +7,7 @@ import {
   Container,
   Card,
   CardContent,
+  Chip
 } from "@mui/material";
 import store from "../Store/store";
 
@@ -18,9 +19,22 @@ const MainPage = () => {
   return (
     <Box sx={{  backgroundColor: "#0b0c10", mt: { md: 0, sm: -11, xs: 0 } }}>
       <Box sx={{ }}>
-    <Typography variant="h3" fontWeight="medium" color="white" sx={{ paddingLeft : "35px", paddingTop: "45px" }}>
-      About Us
-    </Typography>
+      <Chip
+                              label="About Us"
+                              variant="outlined"
+                              sx={{
+                                backgroundColor: "transpparent",
+                                color: "#0ba7a2",
+                                border: "1px solid #303030",
+                                padding : 3,
+                                ml: 8,
+                                fontWeight: "bold",
+borderRadius: 13,
+                                letterSpacing: 1.5,
+                                mt: 9,
+                                filter: "brightness(150%)",
+                              }}
+                            />
   </Box>
      
       <Container sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -45,7 +59,7 @@ const MainPage = () => {
                     padding: 2,
                     position: "relative",
                     "&:hover" :{
-                      boxShadow: "0px 0px 10px 0px rgba(255, 255, 255, 0.7)",
+                      boxShadow: "0px 0px 10px 0px #0ba7a2",
                     },
                     "&:before": {
                       content: '""',

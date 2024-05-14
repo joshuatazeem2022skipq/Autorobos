@@ -12,20 +12,13 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import P1 from "../Images/Projects/P1.jpg";
-import P2 from "../Images/Projects/p2.jpg";
-import P3 from "../Images/Projects/p3.jpg";
-import P4 from "../Images/Projects/p4.jpg";
-import P5 from "../Images/Projects/p5.jpg";
-import P6 from "../Images/Projects/p6.jpg";
-import P7 from "../Images/Projects/p7.jpg";
-import P8 from "../Images/Projects/p8.jpg";
-import P9 from "../Images/Projects/p9.jpg";
-import P10 from "../Images/Projects/p10.jpg";
 import P11 from "../Images/Projects/13.jpg";
+
 import ListIcon from "@mui/icons-material/List";
 import { styled } from "@mui/system";
+import { useTheme } from "@mui/material/styles";
+import { useSelector } from "react-redux";
+import store from "../Store/store";
 
 const t1 = { textAlign: "center", color: "#fff", mt: { md: 5, xs: 17 } };
 const t2 = { textAlign: "center", color: "#fff", p: 3 };
@@ -87,78 +80,7 @@ const StyledCard = styled(Card)({
 // });
 
 const Project = () => {
-  const projects = [
-    {
-      id: "01",
-      img: P1,
-      title: "Warehouse Robotics",
-      desc: "Develop an automated warehouse system with robots that can efficiently manage inventory, pick and pack orders, and optimize storage space.",
-      category: "Robotics",
-    },
-    {
-      id: "02",
-      img: P2,
-      title: "Home Automation System",
-      desc: "Create a smart home system that allows users to control lighting, heating, and security remotely through a web application. Integrate IoT devices for real-time monitoring and control.",
-      category: "Automation",
-    },
-    {
-      id: "03",
-      img: P3,
-      title: "IoT Weather Station",
-      desc: "Build a weather station using IoT sensors to collect and transmit data to a web application for real-time weather monitoring and forecasting.",
-      category: "IoT",
-    },
-    {
-      id: "04",
-      img: P4,
-      title: "Industrial Automation",
-      desc: "Implement an industrial automation solution using embedded systems to control manufacturing processes and monitor equipment health through a web-based dashboard.",
-      category: "Automation",
-    },
-    {
-      id: "05",
-      img: P5,
-      title: "Smart Agriculture",
-      desc: "Create a system that combines IoT sensors, robotics, and a web application to optimize farming operations by monitoring soil conditions, irrigation, and crop health",
-      category: "Machine Learning",
-    },
-    {
-      id: "06",
-      img: P6,
-      title: "Home Security Robot",
-      desc: "Design a robot with embedded vision capabilities for home security purposes, allowing users to control and monitor their homes remotely.",
-      category: "Robotics",
-    },
-    {
-      id: "07",
-      img: P7,
-      title: "IoT-Based Healthcare",
-      desc: "Develop a healthcare system that uses IoT sensors to monitor patient health and send data to a web platform for doctors and caregivers to access.",
-      category: "IoT",
-    },
-    {
-      id: "08",
-      img: P8,
-      title: "Autonomous Delivery Drone",
-      desc: "Build an autonomous delivery drone system that uses embedded systems for navigation and a web application for tracking and managing deliveries",
-      category: "Machine Learning",
-    },
-    {
-      id: "09",
-      img: P9,
-      title: "Greenhouse Automation",
-      desc: "Create an automated greenhouse system that regulates temperature, humidity, and irrigation using IoT sensors and a web-based control panel.",
-      category: "Automation",
-    },
-    {
-      id: "10",
-      img: P10,
-      title: "Smart Parking System",
-      desc: "Develop a smart parking solution with embedded sensors in parking spaces, providing real-time availability information through a web or mobile app.",
-      category: "Embedded Systems",
-    },
-  ];
+ 
 
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [page, setPage] = useState(1);
@@ -180,6 +102,7 @@ const Project = () => {
   const handleMenuClose = () => {
     setAnchorEl(null);
   };
+  const projects = useSelector(((store)=>store.ProjectSection.projects))
 
   const filteredProjects =
     selectedCategory === "All"
@@ -227,8 +150,8 @@ const Project = () => {
           </Typography>
         </Container>
       </Box>
-      <Box sx={{ backgroundColor: "#fcfdff" }}>
-        <Box sx={{ pt: 5 }}>
+      <Box sx={{ backgroundColor: "#0b0c10" }}>
+        <Box sx={{ pt: 5, color: "whitesmoke" }}>
           <Typography variant="h3" align="center">
             Explore Our Portfolio
           </Typography>
@@ -291,6 +214,15 @@ const Project = () => {
                     sx={{
                       m: 1,
                       mt: 2,
+                      backgroundColor: "transparent",
+                      border: "1px solid #303030",
+                      borderRadius: 13,
+                      padding:1,
+                      color: "#0ba7a2",
+                      "&:hover": {
+                        backgroundColor: "white!important",
+                        color: "#0ba7a2",
+                      },
                     }}
                   >
                     {category}
@@ -373,13 +305,14 @@ const Project = () => {
             sx={{
               display: "flex",
               justifyContent: "center",
+              color: "white!important"
             }}
           >
             <Pagination
               count={pageCount}
               page={page}
               onChange={handleChangePage}
-              sx={{ mb: 3, mt: 4 }}
+              sx={{ mb: 3, mt: 4 ,color: "white!important"}}
             />
           </Box>
         </Box>

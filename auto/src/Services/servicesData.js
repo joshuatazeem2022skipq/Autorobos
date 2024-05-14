@@ -31,14 +31,14 @@ export const initialServicesData = [
     backgroundColor: "#80d8ff",
     isDetailVisible: false,
   },
-  {
-    title: "Internet of Things",
-    content:
-      "AUTOROBOS is an Internet of Things (IoT) company that connects your devices and systems to the internet. We provide IoT solutions that enable you to monitor, control, and automate your processes and operations. We also provide IoT security, analytics, and cloud services to ensure your data is safe and accessible. Whether you want to improve your productivity, efficiency, or customer satisfaction, we can help you achieve it with our IoT solutions.",
-    image: B3,
-    backgroundColor: "#ffc0cb",
-    isDetailVisible: false,
-  },
+  // {
+  //   title: "Internet of Things",
+  //   content:
+  //     "AUTOROBOS is an Internet of Things (IoT) company that connects your devices and systems to the internet. We provide IoT solutions that enable you to monitor, control, and automate your processes and operations. We also provide IoT security, analytics, and cloud services to ensure your data is safe and accessible. Whether you want to improve your productivity, efficiency, or customer satisfaction, we can help you achieve it with our IoT solutions.",
+  //   image: B3,
+  //   backgroundColor: "#ffc0cb",
+  //   isDetailVisible: false,
+  // },
   {
     title: "Embedded Systems",
     content:
@@ -47,14 +47,14 @@ export const initialServicesData = [
     backgroundColor: "#d3ffce",
     isDetailVisible: false,
   },
-  {
-    title: "Automation",
-    content:
-      "AUTOROBOS is an automation company that automates your tasks and workflows. We provide automation solutions that reduce your manual work, errors, and costs. We also provide automation consulting, training, and support services to help you implement and maintain your automation systems. Whether you want to automate your manufacturing, logistics, or administration, we can help you achieve it with our automation solutions.",
-    image: B5,
-    backgroundColor: "#f2d9ff",
-    isDetailVisible: false,
-  },
+  // {
+  //   title: "Automation",
+  //   content:
+  //     "AUTOROBOS is an automation company that automates your tasks and workflows. We provide automation solutions that reduce your manual work, errors, and costs. We also provide automation consulting, training, and support services to help you implement and maintain your automation systems. Whether you want to automate your manufacturing, logistics, or administration, we can help you achieve it with our automation solutions.",
+  //   image: B5,
+  //   backgroundColor: "#f2d9ff",
+  //   isDetailVisible: false,
+  // },
   {
     title: "Robotics",
     content:

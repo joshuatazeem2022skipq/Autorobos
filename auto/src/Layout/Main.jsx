@@ -10,7 +10,7 @@ const Main = ({ activePage }) => {
   const isHomePage = location.pathname === "/";
 
   return (
-    <Box>
+    <Box sx={{backgroundColor:"#0b0c10"}}>
       {isHomePage && <SideBar />}
 
       <Box position="relative">

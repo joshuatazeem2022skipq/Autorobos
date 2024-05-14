@@ -101,7 +101,7 @@ const Banner = () => {
                     marginRight: isSmallScreen ? 0 : 2,
                     border: "2px solid #303030",
                     borderRadius: 13,
-                    "&:hover": { backgroundColor: "#5494ff!important" },
+                    "&:hover": { backgroundColor: "#0ba7a2!important" },
                   }}
                 >
                   Explore

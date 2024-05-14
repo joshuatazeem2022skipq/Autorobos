@@ -13,7 +13,7 @@ const Home = () => {
       <Banner />
       <DifferentiationSection />
       {/* <AboutUs /> */}
-      {/* <Services /> */}
+      <Services />
       <ScrollAnimationComponent />
       {/* <BackgroundVideo components={[analysisRef, reviewRef, solutionsRef]} /> */}
       <QualityCustom />

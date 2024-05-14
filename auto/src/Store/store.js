@@ -3,16 +3,37 @@ import { NotificationManager } from "react-notifications";
 // import { toast } from "react-toastify";
 // import { Toast } from "react-toastify/dist/components";
 import { combineReducers, createStore } from "redux";
-// import { v4 } from "uuid";
-// import P1 from "../Images/About/Recent Projects/project-v1-1.jpg";
-// import P2 from "../Images/About/Recent Projects/project-v1-2.jpg";
-// import P3 from "../Images/About/Recent Projects/project-v1-3.jpg";
-// import P4 from "../Images/About/Recent Projects/project-v1-4.jpg";
-// import P5 from "../Images/About/Recent Projects/project-v1-5.jpg";
+import R1 from "../Images/Analysis/person-1_rfzshl.jpg";
+import R2 from "../Images/Analysis/person-2_np9x5l.jpg";
+import R3 from "../Images/Analysis/person-3_ipa0mj.jpg";
+import R4 from "../Images/Analysis/pexels-ketut-subiyanto-4350097.jpg";
+import R5 from "../Images/Analysis/peters.jpg";
 
-// import B1 from "../Images/Blog/blog-v2-1-370x280.jpg";
-// import B2 from "../Images/Blog/blog-v2-2-370x280.jpg";
-// import B3 from "../Images/Blog/blog-v2-3-370x280.jpg";
+import P1 from "../Images/Projects/P1.jpg";
+import P2 from "../Images/Projects/p2.jpg";
+import P3 from "../Images/Projects/p3.jpg";
+import P4 from "../Images/Projects/p4.jpg";
+import P5 from "../Images/Projects/p5.jpg";
+import P6 from "../Images/Projects/p6.jpg";
+import P7 from "../Images/Projects/p7.jpg";
+import P8 from "../Images/Projects/p8.jpg";
+import P9 from "../Images/Projects/p9.jpg";
+import P10 from "../Images/Projects/p10.jpg";
+
+import B1 from "../Images/Services/8 Smartphone.png";
+import B2 from "../Images/Services/7 Computer.png";
+import B3 from "../Images/Services/20 Microchip.png";
+import B4 from "../Images/Services/19 Internet of Things (IoT).png";
+import B5 from "../Images/Services/26 Hologram.png";
+import B6 from "../Images/Services/9 Robot Arm.png";
+import B7 from "../Images/Services/11 Artificial Intelliegence.png";
+import V1 from "../Images/Services/exp/Services Content/A.jpg";
+import V2 from "../Images/Services/exp/Services Content/A1.jpeg";
+import V3 from "../Images/Services/exp/Services Content/A2.jpg";
+import V4 from "../Images/Services/exp/Services Content/A3.jpg";
+import V5 from "../Images/Services/exp/Services Content/A4.jpg";
+import V6 from "../Images/Services/exp/Services Content/A5.jpg";
+import V7 from "../Images/Services/exp/Services Content/A6.jpg";
 
 import A1 from "../Images/Aboutus/P1/01.jpg";
 import A2 from "../Images/Aboutus/P1/02.jpg";
@@ -20,159 +41,21 @@ import A3 from "../Images/Aboutus/P1/03.jpg";
 import A4 from "../Images/Aboutus/P1/04.jpg";
 import A5 from "../Images/Aboutus/P1/05.jpg";
 import A6 from "../Images/Aboutus/P1/06.jpg";
-// let CardsData = {
-//   orders: [],
-//   searched: "",
-//   products: [
-//     {
-//       id: v4(),
-//       name: "Kitchen Wall design",
-//       href: "#",
-//       price: "$256",
-//       dis: "5%",
-//       cut: "$45",
-//       description:
-//         "Elevate the heart of your home with our bespoke kitchen wall design service. We understand that the kitchen is more than just a functional space—it's where memories are made and culinary creativity flourishes. Our team of experienced designers combines practicality with aesthetics to craft personalized wall designs that perfectly complement your lifestyle and culinary aspirations. Whether you're seeking a sleek, minimalist backdrop for modern cooking or a cozy, rustic atmosphere for family gatherings, we offer a diverse range of materials, colors, and finishes to suit every taste. Transform your kitchen into a culinary haven with our tailored wall design solutions and create a space that inspires culinary creativity.Discover the art of culinary design with our expert kitchen wall design service. We believe that the kitchen should reflect your personality and culinary passions, serving as a space where functionality meets style. Our dedicated team collaborates closely with you to understand your vision and lifestyle requirements, curating innovative wall designs that enhance the ambiance and functionality of your kitchen. Whether you're drawn to contemporary trends or timeless classics, we offer a wide selection of materials and finishes, from sleek tiles to textured wallpapers, ensuring a bespoke solution that resonates with your unique aesthetic. Elevate your cooking experience and add a touch of sophistication to your kitchen with our customized wall design service, where every detail is crafted to perfection",
-//       options: "8 colors",
-//       imageSrc: P1,
-//       images: [P1, P2, P3],
-//       imageAlt:
-//         "Eight shirts arranged on table in black, olive, grey, blue, white, red, mustard, and green.",
-//     },
-//     {
-//       id: v4(),
-//       name: "Washroom Wall design",
-//       href: "#",
-//       price: "$32",
-//       dis: "5%",
-//       cut: "$45",
-//       description:
-//         "Transform your washroom into a serene oasis with our tailored wall design service. We understand that the washroom is a sanctuary for relaxation and rejuvenation, and our expert designers specialize in creating spaces that seamlessly blend functionality with tranquility. From luxurious marble accents to soothing pastel tones, our diverse range of materials and finishes allows you to personalize your washroom according to your unique style and preferences. Whether you envision a contemporary spa-like retreat or a timeless, elegant ambiance, our team works closely with you to bring your vision to life. Elevate your daily routine and indulge in the ultimate bathing experience with our bespoke washroom wall design solutions.Experience the epitome of luxury with our bespoke washroom wall design service. We believe that the washroom should be a haven of comfort and sophistication, reflecting your individuality and sense of style. Our talented designers specialize in curating personalized wall designs that combine opulence with functionality, ensuring a space that is both visually stunning and highly practical. From intricate mosaic patterns to sleek, modern finishes, we offer a wide array of options to suit every taste and aesthetic preference. Elevate your washroom to new heights of elegance and sophistication with our customized wall design service, where every detail is meticulously crafted to create a space that exudes luxury and refinement.",
-//       options: "Black",
-//       imageSrc: P2,
-//       images: [P2, P2, P3],
-//       imageAlt: "Front of plain black t-shirt.",
-//     },
-//     {
-//       id: v4(),
-//       name: "Basement Design",
-//       href: "#",
-//       price: "$32",
-//       dis: "5%",
-//       cut: "$45",
-//       description:
-//         "Unlock the full potential of your basement with our comprehensive basement design service. Often overlooked and underutilized, basements offer a wealth of untapped space that can be transformed into anything from a cozy retreat to a versatile entertainment hub. Our team of experienced designers specializes in maximizing every square foot, crafting innovative layouts that cater to your specific needs and aspirations. Whether you envision a home theater for family movie nights, a stylish guest suite for hosting visitors, or a functional home office that inspires productivity, we work closely with you to conceptualize and bring your basement dreams to fruition.Beyond functionality, our basement design service prioritizes aesthetics and comfort, ensuring that your subterranean sanctuary is a seamless extension of your home's overall design. From lighting solutions that create ambiance to finishes that evoke warmth and sophistication, every detail is carefully curated to enhance your basement's appeal and usability. With our expertise guiding the way, your basement becomes not just an afterthought, but a valuable addition to your living space that enriches your lifestyle and adds significant value to your home. Whether you're seeking practical solutions for storage and organization or envisioning a luxurious retreat beneath the surface, our basement design service transforms your basement into a space you'll love to live in. ",
-//       options: "Black",
-//       imageSrc: P3,
-//       images: [P3, P2, P1],
-//       imageAlt: "Front of plain black t-shirt.",
-//     },
-//     {
-//       id: v4(),
-//       name: "Tile floor Design",
-//       href: "#",
-//       price: "$32",
-//       discount: "5%",
-//       originalPrice: "$45",
-//       description:
-//         "Our tile floor design service brings a touch of elegance and functionality to your space, transforming ordinary floors into stunning focal points. With a keen eye for detail and a passion for creativity, we specialize in crafting personalized tile designs tailored to your unique style and preferences. Whether you prefer sleek modern aesthetics or timeless classical motifs, our expert team works closely with you to bring your vision to life, ensuring every tile is meticulously placed for a flawless finish. Elevate your interior with our tile floor design service and discover the transformative power of beautiful flooring.Elevate the ambiance of your home or commercial space with our bespoke tile floor design service. From contemporary chic to rustic charm, our skilled designers harness the versatility of tiles to create captivating flooring solutions that reflect your individual taste and lifestyle. We take pride in our attention to detail, meticulously curating patterns, textures, and color palettes to enhance the aesthetic appeal of any room. Whether you're revamping a kitchen, bathroom, or entire living area, our innovative approach and commitment to quality craftsmanship ensure a stunning result that exceeds expectations. Experience the beauty of bespoke tile floor design and unlock the potential of your space.        ",
-//       options: "Black",
-//       imageSrc: P4,
-//       images: [P4, P2, P3],
-//       imageAlt: "Front of plain black t-shirt.",
-//     },
-//     {
-//       id: v4(),
-//       name: "Painting wall Design",
-//       href: "#",
-//       price: "$32",
-//       dis: "5%",
-//       cut: "$45",
-//       description:
-//         "Transforming your space with a fresh coat of paint isn't just about covering up scuffs and marks; it's an opportunity to infuse your walls with personality and style. Our painting wall design service goes beyond the conventional brush strokes, offering a palette of possibilities to elevate your interior aesthetic. Whether you crave serene minimalism, vibrant bursts of color, or intricate patterns inspired by global motifs, our team of skilled designers and painters collaborates with you to bring your vision to life. From accent walls that serve as focal points to cohesive room schemes that evoke harmony, we tailor each project to suit your taste, lifestyle, and the unique character of your homeWith our painting wall design service, your walls become canvases for creativity, reflecting your individuality and setting the tone for your entire space. We pay meticulous attention to detail, from precise color matching to flawless execution, ensuring a result that surpasses your expectations. Whether you're revitalizing a single room or undergoing a full-scale renovation, our commitment to craftsmanship and customer satisfaction ensures that every brushstroke contributes to a space that feels distinctly yours. Experience the transformative power of paint with our painting wall design service, where every wall becomes a work of art..",
-//       options: "Black",
-//       imageSrc: P5,
-//       images: [P5, P2, P3],
-//       imageAlt: "Front of plain black t-shirt.",
-//     },
 
-//     // More products...
-//   ],
-// };
+import { ReactComponent as I1 } from "../Images/Services/icons/icon_08.svg";
+import { ReactComponent as I2 } from "../Images/Services/icons/icon_09.svg";
+import { ReactComponent as I3 } from "../Images/Services/icons/icon_10.svg";
+import { ReactComponent as I4 } from "../Images/Services/icons/icon_11.svg";
+import { ReactComponent as I5 } from "../Images/Services/icons/icon_12.svg";
+import EastIcon from "@mui/icons-material/East";
+import S1 from "../Images/Shapea/shape_04.svg";
+import S2 from "../Images/Shapea/shape_05.svg";
 
-// function ProductsSection(oldData = CardsData, newData) {
-//   oldData = {
-//     ...oldData,
-//     products: [...oldData.products],
-//     orders: [...oldData.orders],
-//   };
-//   if (newData.type === "ADD_PRODUCT") {
-//     oldData.products.push(newData.payload);
-//     NotificationManager.success("Product added", "Added");
-//   } else if (newData.type === "SEARCH_PRODUCT") {
-//     oldData.searched = newData.payload;
-//   } else if (newData.type === "TOGGLE_LIKED_BTN") {
-//     let item = oldData.products.find((product) => product.id === newData.id);
-//     item.abc = !item.abc;
-//     NotificationManager.success("Liked");
-//   } else if (newData.type === "ADDED_tO_CART") {
-//     oldData.orders.push(newData.payload);
-//     NotificationManager.success("Product added to cart", "Added");
-//   }
-
-//   return oldData;
-// }
-
-// let BlogsData = {
-//   Blogs: [
-//     {
-//       id: 1,
-//       image: B1,
-//       title: "How to protect your damaged walls",
-//       date: "01/01/2023",
-//       description:
-//         "There are not many passa,f erkjkbfubej vd hjer fe f j vdv gj  rjhg hej fvndv e fnvjer n vndfvbd v nd vn dges of lorem ipsum available alteration in",
-//     },
-//     {
-//       id: 2,
-//       image: B2,
-//       title: "Learn the right way to use wall sheets",
-//       date: "02/02/2023",
-//       description:
-//         "There are not many pas dfdfdgdfvd f vfgr dfvedfsagev freglktt rglkgklaa frt4tfs s d vcergtdslkf of lorem ipsu xhbfhvbfbbcjdbhsjcssbcsbm available alteration in",
-//     },
-//     {
-//       id: 3,
-//       image: B3,
-//       title: "Difference between wallpaper and sheets",
-//       date: "03/03/2023",
-//       description:
-//         "There are not many passages v fj vj cchjbwoodnqj jqwnis njdxqn lNQERWE qdjkkk ncd vjkekof lorem ipsum available alteration in",
-//     },
-//   ],
-// };
-// function BlogsSection(oldData = BlogsData, newData) {
-//   oldData = {
-//     ...oldData,
-//     products: [...oldData.Blogs],
-//     // orders: [...oldData.orders],
-//   };
-//   if (newData.type === "ADD_PRODUCT") {
-//     oldData.products.push(newData.payload);
-//     NotificationManager.success("Product added", "Added");
-//   } else if (newData.type === "SEARCH_PRODUCT") {
-//     oldData.searched = newData.payload;
-//   } else if (newData.type === "TOGGLE_LIKED_BTN") {
-//     let item = oldData.products.find((product) => product.id === newData.id);
-//     item.abc = !item.abc;
-//     NotificationManager.success("Liked");
-//   } else if (newData.type === "ADDED_tO_CART") {
-//     oldData.orders.push(newData.payload);
-//     NotificationManager.success("Product added to cart", "Added");
-//   }
-
-//   return oldData;
-// }
+import h1 from "../Images/Services/home/01.jpg";
+import h2 from "../Images/Services/home/04.jpg";
+import h3 from "../Images/Services/home/08.jpg";
+import h4 from "../Images/Services/home/09.jpg";
+import h5 from "../Images/Services/home/10.jpg";
 
 const DiffData = {
   Diffs: [
@@ -238,6 +121,451 @@ function DiffSection(oldData = DiffData, newData) {
   return oldData;
 }
 
+const CardsData = {
+  Cards: [
+    {
+      icon: <I1 />,
+      title: "Web App development",
+      description:
+        "At AutoROBS, we specialize in the cutting-edge world of Automation technologies and their applications.",
+      actions: [<EastIcon />],
+      bgImage: h1,
+    },
+    {
+      icon: <I1 />,
+      title: "Web App development",
+      description:
+        "At AutoROBS, we specialize in the cutting-edge world of Automation technologies and their applications.",
+      actions: [<EastIcon />],
+      bgImage: h1,
+    },
+    {
+      icon: <I2 />,
+      title: "Mobile App Development",
+      description:
+        "At AutoROBS comes with a lot of expertise with Robotics developers to execute any robotics project from start to finish.",
+      actions: [<EastIcon />],
+      bgImage: h2,
+    },
+    {
+      icon: <I3 />,
+      title: "Internet of Things (IoT)",
+      description:
+        "Access tools for deep learning, cloud computing, and AI capabilities.",
+      actions: [<EastIcon />],
+      bgImage: h3,
+    },
+    {
+      icon: <I4 />,
+      title: "AI (Machine Learning)",
+      description:
+        "we specialize in the cutting-edge world of IoT technologies and their applications.",
+      actions: [<EastIcon />],
+      bgImage: h4,
+    },
+    {
+      icon: <I5 />,
+      title: "Embedded System",
+      description:
+        "At AutoROBS comes with a lot of expertise with embedded developers to execute any embedded project from start to finish.",
+      actions: [<EastIcon />],
+      bgImage: h5,
+    },
+  ],
+};
+function CardSection(oldData = CardsData, newData) {
+  oldData = {
+    ...oldData,
+    products: [...oldData.Cards],
+    // orders: [...oldData.orders],
+  };
+  if (newData.type === "ADD_PRODUCT") {
+    oldData.products.push(newData.payload);
+    NotificationManager.success("Product added", "Added");
+  } else if (newData.type === "SEARCH_PRODUCT") {
+    oldData.searched = newData.payload;
+  } else if (newData.type === "TOGGLE_LIKED_BTN") {
+    let item = oldData.products.find((product) => product.id === newData.id);
+    item.abc = !item.abc;
+    NotificationManager.success("Liked");
+  } else if (newData.type === "ADDED_tO_CART") {
+    oldData.orders.push(newData.payload);
+    NotificationManager.success("Product added to cart", "Added");
+  }
+
+  return oldData;
+}
+
+const CustomerData = {
+  Clients: [
+    {
+      id: 1,
+      name: "John Doe",
+      review:
+        "AutoROBS Automation provided exceptional service for our factory automation project. Their attention to detail, expertise in the latest technologies, and commitment to delivering on time exceeded our expectations. Highly recommended!",
+      image: R1,
+    },
+    {
+      id: 2,
+      name: "Alex Albert",
+      review:
+        "AutoROBS Robotics is a game-changer in the world of robotics. Their innovative solutions and collaborative approach made our robotics integration seamless. Their team is not just skilled but also passionate about pushing the boundaries of what's possible in automation.",
+      image: R2,
+    },
+    {
+      id: 3,
+      name: "Rachel David",
+      review:
+        "AutoROBS AI Solutions has transformed our business with their cutting-edge AI solutions. The predictive analytics and machine learning algorithms they implemented significantly improved our decision-making process. Working with Isaac AI Solutions was a strategic investment in our company's future.",
+      image: R3,
+    },
+    {
+      id: 4,
+      name: "Isaac Das",
+      review:
+        "Embedded Tech is a go-to partner for embedded systems development. Their deep understanding of hardware and software integration, coupled with their dedication to quality, made our project a success. Professionalism at its best!",
+      image: R4,
+    },
+    {
+      id: 5,
+      name: "Emily Peter",
+      review:
+        "IoT Innovations has been instrumental in our IoT initiatives. Their comprehensive approach, from sensor integration to cloud connectivity, showcased their expertise in the IoT landscape. Working with Oliver IoT Innovations has been a collaborative journey towards a connected and smarter future.",
+      image: R5,
+    },
+  ],
+};
+
+function CustomerSection(oldData = CustomerData, newData) {
+  oldData = {
+    ...oldData,
+    products: [...oldData.Clients],
+    // orders: [...oldData.orders],
+  };
+  if (newData.type === "ADD_PRODUCT") {
+    oldData.products.push(newData.payload);
+    NotificationManager.success("Product added", "Added");
+  } else if (newData.type === "SEARCH_PRODUCT") {
+    oldData.searched = newData.payload;
+  } else if (newData.type === "TOGGLE_LIKED_BTN") {
+    let item = oldData.products.find((product) => product.id === newData.id);
+    item.abc = !item.abc;
+    NotificationManager.success("Liked");
+  } else if (newData.type === "ADDED_tO_CART") {
+    oldData.orders.push(newData.payload);
+    NotificationManager.success("Product added to cart", "Added");
+  }
+
+  return oldData;
+}
+
+const ServicesData = {
+  initialServicesData: [
+    {
+      title: "Digital Marketing",
+      content:
+        "AUTOROBOS is a digital marketing agency that helps you reach your target audience online. We use the latest tools and techniques to optimize your website, social media, email, and advertising campaigns. We also use data and analytics to measure your performance and improve your ROI. Whether you want to increase your brand awareness, generate more leads, or boost your sales, we can help you achieve your goals with our digital marketing solutions.",
+      contentColor: "#02274a",
+      image: B1,
+      backgroundColor: "#ffcc80",
+      isDetailVisible: false,
+    },
+    {
+      title: "Web Development",
+      content:
+        " AUTOROBOS is a web development company that creates stunning and functional websites for your business. We use the best practices and technologies to design and develop websites that are responsive, user-friendly, and secure. We also offer web hosting, maintenance, and support services to ensure your website runs smoothly and efficiently. Whether you need a simple landing page, a complex e-commerce site, or a custom web application, we can deliver it with our web development expertise.",
+      image: B2,
+      backgroundColor: "#80d8ff",
+      isDetailVisible: false,
+    },
+    // {
+    //   title: "Internet of Things",
+    //   content:
+    //     "AUTOROBOS is an Internet of Things (IoT) company that connects your devices and systems to the internet. We provide IoT solutions that enable you to monitor, control, and automate your processes and operations. We also provide IoT security, analytics, and cloud services to ensure your data is safe and accessible. Whether you want to improve your productivity, efficiency, or customer satisfaction, we can help you achieve it with our IoT solutions.",
+    //   image: B3,
+    //   backgroundColor: "#ffc0cb",
+    //   isDetailVisible: false,
+    // },
+    {
+      title: "Embedded Systems",
+      content:
+        "AUTOROBOS is an embedded systems company that develops and integrates hardware and software for your devices and systems. We provide embedded systems solutions that are reliable, scalable, and cost-effective. We also provide embedded systems testing, debugging, and optimization services to ensure your systems perform optimally. Whether you need a microcontroller, a sensor, or a complex system-on-chip, we can deliver it with our embedded systems expertise.",
+      image: B4,
+      backgroundColor: "#d3ffce",
+      isDetailVisible: false,
+    },
+    // {
+    //   title: "Automation",
+    //   content:
+    //     "AUTOROBOS is an automation company that automates your tasks and workflows. We provide automation solutions that reduce your manual work, errors, and costs. We also provide automation consulting, training, and support services to help you implement and maintain your automation systems. Whether you want to automate your manufacturing, logistics, or administration, we can help you achieve it with our automation solutions.",
+    //   image: B5,
+    //   backgroundColor: "#f2d9ff",
+    //   isDetailVisible: false,
+    // },
+    {
+      title: "Robotics",
+      content:
+        "AUTOROBOS is a robotics company that builds and programs robots for your needs. We provide robotics solutions that enhance your capabilities, efficiency, and safety. We also provide robotics education, research, and innovation services to help you learn and explore the possibilities of robotics. Whether you want a robot for your home, your industry, or your research, we can help you achieve it with our robotics solutions.",
+      image: B6,
+      backgroundColor: "#ffe5b4",
+      isDetailVisible: false,
+    },
+    {
+      title: "Artificial Intelligence",
+      titleColor: "white",
+      content:
+        "AUTOROBOS is an artificial intelligence (AI) company that applies AI to your data and problems. We provide AI solutions that enable you to analyze, predict, and optimize your outcomes. We also provide AI development, integration, and deployment services to help you leverage the power of AI. Whether you want to use AI for your marketing, your web development, or your robotics, we can help you achieve it with our AI solutions.",
+      contentColor: "#fbfcf8",
+      image: B7,
+      backgroundColor: "#2c365a",
+      isDetailVisible: false,
+    },
+  ],
+};
+function ServiceSection(oldData = ServicesData, newData) {
+  oldData = {
+    ...oldData,
+    products: [...oldData.initialServicesData],
+    // orders: [...oldData.orders],
+  };
+  if (newData.type === "ADD_PRODUCT") {
+    oldData.products.push(newData.payload);
+    NotificationManager.success("Product added", "Added");
+  } else if (newData.type === "SEARCH_PRODUCT") {
+    oldData.searched = newData.payload;
+  } else if (newData.type === "TOGGLE_LIKED_BTN") {
+    let item = oldData.products.find((product) => product.id === newData.id);
+    item.abc = !item.abc;
+    NotificationManager.success("Liked");
+  } else if (newData.type === "ADDED_tO_CART") {
+    oldData.orders.push(newData.payload);
+    NotificationManager.success("Product added to cart", "Added");
+  }
+
+  return oldData;
+}
+
+const ServicesContent = {
+  content: [
+    {
+      title: "Digital Marketing",
+      title1:
+        "Transform your devices into intelligent systems with our embedded machine learning services. At Autorobos, we specialize in developing and deploying machine learning models directly onto microcontrollers, unlocking new capabilities and efficiencies for your products. Our expert team works closely with you to understand your unique requirements and design custom solutions that seamlessly integrate with your hardware.",
+      title2:
+        "Utilizing state-of-the-art algorithms optimized for resource-constrained environments, we enable real-time decision-making and autonomy at the edge. From sensor data processing to predictive maintenance, our embedded machine learning solutions empower your devices to adapt, learn, and optimize performance in any environment.",
+      points: [
+        "- Ignite innovation with our embedded machine learning services.",
+        "- Tailored solutions for seamless integration with your hardware.",
+        "- Real-time empowerment with cutting-edge algorithms.",
+        "- Adapt, learn, optimize: Empowering devices for peak performance.",
+      ],
+      bgImage: V1,
+    },
+    {
+      title: "Web development & Application",
+      title1:
+        "Transform your devices into intelligent systems with our embedded machine learning services. At Autorobos, we specialize in developing and deploying machine learning models directly onto microcontrollers, unlocking new capabilities and efficiencies for your products. Our expert team works closely with you to understand your unique requirements and design custom solutions that seamlessly integrate with your hardware.",
+      title2:
+        "Utilizing state-of-the-art algorithms optimized for resource-constrained environments, we enable real-time decision-making and autonomy at the edge. From sensor data processing to predictive maintenance, our embedded machine learning solutions empower your devices to adapt, learn, and optimize performance in any environment.",
+      points: [
+        "- Ignite innovation with our embedded machine learning services.",
+        "- Tailored solutions for seamless integration with your hardware.",
+        "- Real-time empowerment with cutting-edge algorithms.",
+        "- Adapt, learn, optimize: Empowering devices for peak performance.",
+      ],
+      bgImage: V7,
+    },
+    {
+      title: "Internet of Things",
+      title1:
+        "Transform your devices into intelligent systems with our embedded machine learning services. At Autorobos, we specialize in developing and deploying machine learning models directly onto microcontrollers, unlocking new capabilities and efficiencies for your products. Our expert team works closely with you to understand your unique requirements and design custom solutions that seamlessly integrate with your hardware.",
+      title2:
+        "Utilizing state-of-the-art algorithms optimized for resource-constrained environments, we enable real-time decision-making and autonomy at the edge. From sensor data processing to predictive maintenance, our embedded machine learning solutions empower your devices to adapt, learn, and optimize performance in any environment.",
+      points: [
+        "- Ignite innovation with our embedded machine learning services.",
+        "- Tailored solutions for seamless integration with your hardware.",
+        "- Real-time empowerment with cutting-edge algorithms.",
+        "- Adapt, learn, optimize: Empowering devices for peak performance.",
+      ],
+      bgImage: V5,
+    },
+    {
+      title: "Embedded Ai",
+      title1:
+        "Transform your devices into intelligent systems with our embedded machine learning services. At Autorobos, we specialize in developing and deploying machine learning models directly onto microcontrollers, unlocking new capabilities and efficiencies for your products. Our expert team works closely with you to understand your unique requirements and design custom solutions that seamlessly integrate with your hardware.",
+      title2:
+        "Utilizing state-of-the-art algorithms optimized for resource-constrained environments, we enable real-time decision-making and autonomy at the edge. From sensor data processing to predictive maintenance, our embedded machine learning solutions empower your devices to adapt, learn, and optimize performance in any environment.",
+      points: [
+        "- Ignite innovation with our embedded machine learning services.",
+        "- Tailored solutions for seamless integration with your hardware.",
+        "- Real-time empowerment with cutting-edge algorithms.",
+        "- Adapt, learn, optimize: Empowering devices for peak performance.",
+      ],
+      bgImage: V3,
+    },
+    {
+      title: "Automation Designing",
+      title1:
+        "Transform your devices into intelligent systems with our embedded machine learning services. At Autorobos, we specialize in developing and deploying machine learning models directly onto microcontrollers, unlocking new capabilities and efficiencies for your products. Our expert team works closely with you to understand your unique requirements and design custom solutions that seamlessly integrate with your hardware.",
+      title2:
+        "Utilizing state-of-the-art algorithms optimized for resource-constrained environments, we enable real-time decision-making and autonomy at the edge. From sensor data processing to predictive maintenance, our embedded machine learning solutions empower your devices to adapt, learn, and optimize performance in any environment.",
+      points: [
+        "- Ignite innovation with our embedded machine learning services.",
+        "- Tailored solutions for seamless integration with your hardware.",
+        "- Real-time empowerment with cutting-edge algorithms.",
+        "- Adapt, learn, optimize: Empowering devices for peak performance.",
+      ],
+      bgImage: V2,
+    },
+    {
+      title: "Robotics Designing",
+      title1:
+        "Transform your devices into intelligent systems with our embedded machine learning services. At Autorobos, we specialize in developing and deploying machine learning models directly onto microcontrollers, unlocking new capabilities and efficiencies for your products. Our expert team works closely with you to understand your unique requirements and design custom solutions that seamlessly integrate with your hardware.",
+      title2:
+        "Utilizing state-of-the-art algorithms optimized for resource-constrained environments, we enable real-time decision-making and autonomy at the edge. From sensor data processing to predictive maintenance, our embedded machine learning solutions empower your devices to adapt, learn, and optimize performance in any environment.",
+      points: [
+        "- Ignite innovation with our embedded machine learning services.",
+        "- Tailored solutions for seamless integration with your hardware.",
+        "- Real-time empowerment with cutting-edge algorithms.",
+        "- Adapt, learn, optimize: Empowering devices for peak performance.",
+      ],
+      bgImage: V6,
+    },
+    {
+      title: "Ai (Machine Learning)",
+      title1:
+        "Transform your devices into intelligent systems with our embedded machine learning services. At Autorobos, we specialize in developing and deploying machine learning models directly onto microcontrollers, unlocking new capabilities and efficiencies for your products. Our expert team works closely with you to understand your unique requirements and design custom solutions that seamlessly integrate with your hardware.",
+      title2:
+        "Utilizing state-of-the-art algorithms optimized for resource-constrained environments, we enable real-time decision-making and autonomy at the edge. From sensor data processing to predictive maintenance, our embedded machine learning solutions empower your devices to adapt, learn, and optimize performance in any environment.",
+      points: [
+        "- Ignite innovation with our embedded machine learning services.",
+        "- Tailored solutions for seamless integration with your hardware.",
+        "- Real-time empowerment with cutting-edge algorithms.",
+        "- Adapt, learn, optimize: Empowering devices for peak performance.",
+      ],
+      bgImage: V4,
+    },
+  ],
+};
+function ServiceContentSection(oldData = ServicesContent, newData) {
+  oldData = {
+    ...oldData,
+    products: [...oldData.content],
+    // orders: [...oldData.orders],
+  };
+  if (newData.type === "ADD_PRODUCT") {
+    oldData.products.push(newData.payload);
+    NotificationManager.success("Product added", "Added");
+  } else if (newData.type === "SEARCH_PRODUCT") {
+    oldData.searched = newData.payload;
+  } else if (newData.type === "TOGGLE_LIKED_BTN") {
+    let item = oldData.products.find((product) => product.id === newData.id);
+    item.abc = !item.abc;
+    NotificationManager.success("Liked");
+  } else if (newData.type === "ADDED_tO_CART") {
+    oldData.orders.push(newData.payload);
+    NotificationManager.success("Product added to cart", "Added");
+  }
+
+  return oldData;
+}
+const ProjectsData = {
+  projects: [
+    {
+      id: "01",
+      img: P1,
+      title: "Warehouse Robotics",
+      desc: "Develop an automated warehouse system with robots that can efficiently manage inventory, pick and pack orders, and optimize storage space.",
+      category: "Robotics",
+    },
+    {
+      id: "02",
+      img: P2,
+      title: "Home Automation System",
+      desc: "Create a smart home system that allows users to control lighting, heating, and security remotely through a web application. Integrate IoT devices for real-time monitoring and control.",
+      category: "Automation",
+    },
+    {
+      id: "03",
+      img: P3,
+      title: "IoT Weather Station",
+      desc: "Build a weather station using IoT sensors to collect and transmit data to a web application for real-time weather monitoring and forecasting.",
+      category: "IoT",
+    },
+    {
+      id: "04",
+      img: P4,
+      title: "Industrial Automation",
+      desc: "Implement an industrial automation solution using embedded systems to control manufacturing processes and monitor equipment health through a web-based dashboard.",
+      category: "Automation",
+    },
+    {
+      id: "05",
+      img: P5,
+      title: "Smart Agriculture",
+      desc: "Create a system that combines IoT sensors, robotics, and a web application to optimize farming operations by monitoring soil conditions, irrigation, and crop health",
+      category: "Machine Learning",
+    },
+    {
+      id: "06",
+      img: P6,
+      title: "Home Security Robot",
+      desc: "Design a robot with embedded vision capabilities for home security purposes, allowing users to control and monitor their homes remotely.",
+      category: "Robotics",
+    },
+    {
+      id: "07",
+      img: P7,
+      title: "IoT-Based Healthcare",
+      desc: "Develop a healthcare system that uses IoT sensors to monitor patient health and send data to a web platform for doctors and caregivers to access.",
+      category: "IoT",
+    },
+    {
+      id: "08",
+      img: P8,
+      title: "Autonomous Delivery Drone",
+      desc: "Build an autonomous delivery drone system that uses embedded systems for navigation and a web application for tracking and managing deliveries",
+      category: "Machine Learning",
+    },
+    {
+      id: "09",
+      img: P9,
+      title: "Greenhouse Automation",
+      desc: "Create an automated greenhouse system that regulates temperature, humidity, and irrigation using IoT sensors and a web-based control panel.",
+      category: "Automation",
+    },
+    {
+      id: "10",
+      img: P10,
+      title: "Smart Parking System",
+      desc: "Develop a smart parking solution with embedded sensors in parking spaces, providing real-time availability information through a web or mobile app.",
+      category: "Embedded Systems",
+    },
+  ],
+};
+function ProjectSection(oldData = ProjectsData, newData) {
+  oldData = {
+    ...oldData,
+    products: [...oldData.projects],
+    // orders: [...oldData.orders],
+  };
+  if (newData.type === "ADD_PRODUCT") {
+    oldData.products.push(newData.payload);
+    NotificationManager.success("Product added", "Added");
+  } else if (newData.type === "SEARCH_PRODUCT") {
+    oldData.searched = newData.payload;
+  } else if (newData.type === "TOGGLE_LIKED_BTN") {
+    let item = oldData.products.find((product) => product.id === newData.id);
+    item.abc = !item.abc;
+    NotificationManager.success("Liked");
+  } else if (newData.type === "ADDED_tO_CART") {
+    oldData.orders.push(newData.payload);
+    NotificationManager.success("Product added to cart", "Added");
+  }
+
+  return oldData;
+}
+
 let initialAuthSection = {
   loggedUser: null,
   users: [],
@@ -261,6 +589,11 @@ let allData = combineReducers({
   //   ProductsSection,
   authSection,
   DiffSection,
+  ServiceSection,
+  CustomerSection,
+  CardSection,
+  ServiceContentSection,
+  ProjectSection,
   //   BlogsSection,
 });
 let store = createStore(allData);
