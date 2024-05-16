@@ -112,7 +112,19 @@ const AboutUs = () => {
               <Button
                 variant="contained"
                 color="primary"
-                style={{ justifyContent: "flex-start" }}
+                sx={{
+                  backgroundColor: "#0ba7a2",
+                  border: "1px solid #303030",
+                  borderRadius: 13,
+                  padding:1,
+                  justifyContent :"flex-start",
+                  color: "white", 
+                  mt: 2,
+                  "&:hover": {
+                    backgroundColor: "white!important",
+                    color: "#0ba7a2",
+                  },
+                }}
               >
                 Request a Consultation
               </Button>

@@ -3,9 +3,10 @@ import {
   Card,
   CardContent,
   CardMedia,
-  Container,
+  Container,Chip,
   Grid,
   Typography,
+
   Pagination,
 } from "@mui/material";
 import React, { useState } from "react";
@@ -135,10 +136,23 @@ const Blogs = () => {
       }}
     >
       <Box mb={4}>
-        <Typography variant="h3" align="center">
-          Blogs
-        </Typography>
-        <Typography variant="body1" align="center">
+      <Chip
+                              label="Our Blogs"
+                              variant="outlined"
+                              sx={{
+                                backgroundColor: "transpparent",
+                                color: "#0ba7a2",
+                                border: "1px solid #303030",
+                                padding : 3,
+                                fontWeight: "bold",
+                                ml:8,
+borderRadius: 13,
+                                letterSpacing: 1.5,
+                                mt: 9,
+                                filter: "brightness(150%)",
+                              }}
+                            />
+        <Typography variant="body1" align="center" sx={{mt:3}}>
           Visit our latest Blogs for up-to-date
         </Typography>
       </Box>

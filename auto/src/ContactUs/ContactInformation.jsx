@@ -89,7 +89,7 @@ const ContactInformation = () => {
             sm={5}
             sx={{ textAlign: "left", pl: { sm: 4 }, m: 10 }}
           >
-            <Typography variant="h4" gutterBottom>
+            <Typography variant="h4" color={"#0ba7a2"} gutterBottom>
               <Box display="flex" alignItems="center">
                 <Divider
                   orientation="vertical"
@@ -98,20 +98,21 @@ const ContactInformation = () => {
                     mr: 1,
                     height: "2rem",
                     alignSelf: "stretch",
-                    color: "white",
+                    color: "#0ba7a2",
                     border: "2px solid black",
                   }}
                 />
+                
                 Contact with AUTOROBS
               </Box>
             </Typography>
-            <Typography variant="body1" paragraph sx={{ mb: 2 }}>
+            <Typography variant="body1" paragraph sx={{ mb: 2,color: "#303030" }}>
               We would be happy to answer any questions and explore how our
               services can support your business. If you tell us a bit about
               your interests, we’ll make sure we get you the best contact person
               on our end.
             </Typography>
-            <Typography variant="body1" sx={{ mb: 2 }}>
+            <Typography variant="body1" sx={{ mb: 2 ,color: "#303030"}}>
               If you’d like to talk to someone now, give us a call at
               <strong>(+92) 321 786 4079</strong>.
             </Typography>
@@ -162,7 +163,7 @@ const ContactInformation = () => {
                       />
                     </Grid>
 
-                    <Grid item xs={12} sm={12} md={6}>
+                    <Grid item xs={12} >
                       <TextField
                         id="phone"
                         name="phone"
@@ -226,7 +227,7 @@ const ContactInformation = () => {
                       variant="contained"
                       color="primary"
                       type="submit"
-                      sx={{ mt: 2 }}
+                      sx={{ mt: 2 , backgroundColor:"#0ba7a2" , padding: 1, borderRadius:"18px", width:"90px" }}
                     >
                       Submit
                     </Button>

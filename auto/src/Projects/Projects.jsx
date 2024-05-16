@@ -10,9 +10,11 @@ import {
   MenuItem,
   Pagination,
   Typography,
+  Grid,
   useMediaQuery,
 } from "@mui/material";
-import P11 from "../Images/Projects/13.jpg";
+import BgImage from "../Images/Projects/13.jpg";
+import P11 from "../Images/bg5.jpg";
 
 import ListIcon from "@mui/icons-material/List";
 import { styled } from "@mui/system";
@@ -124,7 +126,7 @@ const Project = () => {
     <>
       <Box
         sx={{
-          backgroundImage: `url(${P11})`,
+          backgroundImage: ` url(${P11})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           minHeight: { md: "60vh", xs: "100vh" },
@@ -315,7 +317,60 @@ const Project = () => {
               sx={{ mb: 3, mt: 4 ,color: "white!important"}}
             />
           </Box>
+
         </Box>
+        <Box sx={{ backgroundColor: "#0b0c10", mb:1 }}>
+      <Container
+        sx={{
+          backgroundImage: `url(${BgImage})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          border: "1px solid #303030",
+          backgroundAttachment: "fixed", // Make background image fixed
+          height: "60vh",
+          mt:10,
+          "@media (max-width: 600px)": {
+            height: "79vh",
+            ml: 1,
+           
+          },
+          minWidth: "90%",
+          borderRadius: 7,
+          py: 4,
+        }}
+      >
+        <Grid container sx={{ mt: 0 }}>
+        <Grid container alignItems="center" justifyContent="center">
+      <Grid item xs={12} sm={8} md={12} sx={{mt:13}} alignItems="center" textAlign="center">
+        <Typography variant="h3" fontWeight="bold" sx={{ color: "white", textAlign: "center"}}>
+          Lets Create Something Great Together?
+        </Typography>
+        <Typography variant="body1" sx={{ color: "grey",mt:3 }}>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo delectus
+          possimus vitae dignissimos esse voluptatem commodi adipisci!
+        </Typography>
+        <Button
+          sx={{
+            backgroundColor: "#0ba7a2",
+            border: "1px solid #303030",
+            borderRadius: 13,
+            padding:2,
+            color: "white", 
+            mt: 2,
+            "&:hover": {
+              backgroundColor: "white!important",
+              color: "#0ba7a2",
+            },
+          }}
+        >
+          Make Inquiry
+        </Button>
+      </Grid>
+    </Grid>
+          
+        </Grid>
+      </Container>
+    </Box>
       </Box>
     </>
   );

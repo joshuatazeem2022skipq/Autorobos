@@ -58,19 +58,7 @@ const ContactPage = () => {
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>
             <Box sx={{ textAlign: "center", py: { xs: 15, md: 23 } }}>
-              <Typography
-                variant="h4"
-                sx={{
-                  color: "#fff",
-                  mb: 2,
-                  border: "2px solid #f2f5ff",
-                  borderRadius: "10px",
-                  boxShadow: "0 12px 14px rgba(0, 0, 0, 0.6)",
-                  p: "15px",
-                }}
-              >
-                Contact Us
-              </Typography>
+             
               <Typography
                 variant="h4"
                 align="left"
@@ -78,10 +66,29 @@ const ContactPage = () => {
               >
                 Get in touch with us for any inquiries or collaborations.
               </Typography>
-              <Box sx={{ display: "flex", justifyContent: "left" }}>
-                <InstagramIcon sx={{ color: "#fff", fontSize: 32, mx: 1 }} />
-                <LinkedInIcon sx={{ color: "#fff", fontSize: 32, mx: 2 }} />
-                <FacebookIcon sx={{ color: "#fff", fontSize: 32, mx: 2 }} />
+              <Typography
+                variant="h4"
+                sx={{
+                  color: "#fff",
+                  
+                  mb: 2,
+                  border: "2px solid #303030",
+                  width :"40%",
+                  ml: 20,
+                  borderRadius: "15px",
+                  boxShadow: "0 12px 14px rgba(0, 0, 0, 0.6)",
+                  p: "10px",
+                  "&:hover": {
+                    backgroundColor: "#0ba7a2"
+                  },
+                }}
+              >
+                Contact Us
+              </Typography>
+              <Box sx={{ display: "flex", justifyContent: "center" }}>
+                <InstagramIcon sx={{ color: "#0ba7a2", fontSize: 32, mx: 1 }} />
+                <LinkedInIcon sx={{ color: "#0ba7a2", fontSize: 32, mx: 2 }} />
+                <FacebookIcon sx={{ color: "#0ba7a2", fontSize: 32, mx: 2 }} />
               </Box>
             </Box>
           </Grid>
@@ -116,7 +123,7 @@ const ContactPage = () => {
                   }}
                 >
                   <CardContent>
-                    <Box sx={{ textAlign: "center" }}>
+                    <Box sx={{ textAlign: "center"  , color: "#0ba7a2"}}>
                       {detail.icon}
                       <Typography
                         variant="h6"

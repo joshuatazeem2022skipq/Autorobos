@@ -256,7 +256,7 @@ const Footer = () => {
                 alignItems: "center",
               }}
             >
-              <Typography variant="h6" gutterBottom align="center">
+              <Typography variant="body1" gutterBottom align="center">
                 Get connected with us on social networks:
               </Typography>
               <Box sx={{ display: "flex", gap: 2, mt: 2, mb: 2, ml:70 }}>

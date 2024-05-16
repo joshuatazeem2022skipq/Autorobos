@@ -6,6 +6,7 @@ import {
   MenuItem,
   Button,
   IconButton,
+  Chip
 } from "@mui/material";
 import CancelIcon from "@mui/icons-material/Cancel";
 import axios from "axios";
@@ -100,7 +101,8 @@ const Career = () => {
     <>
       <Box
         sx={{
-          backgroundColor: "white",
+          backgroundColor: "#0b0c10",
+          color:"white!important",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -114,17 +116,29 @@ const Career = () => {
             margin: "auto",
           }}
         >
-          <Typography
-            variant="h1"
-            align="center"
-            color="textPrimary"
-            gutterBottom
-          >
-            Career Exploration
-          </Typography>
+           <Chip
+                              label="Our Blogs"
+                              variant="outlined"
+                              sx={{
+                                backgroundColor: "transpparent",
+                                color: "#0ba7a2",
+                                border: "1px solid #303030",
+                                padding : 3,
+                                alignItems: "center",
+                                fontWeight: "bold",
+                                alignContent: "center",
+                                justifyContent: "center",
+                                ml:58,
+borderRadius: 13,
+                                letterSpacing: 1.5,
+                                mt: 9,
+                                filter: "brightness(150%)",
+                              }}
+                            />
           <Typography
             variant="body1"
-            color="textSecondary"
+            color="white"
+            sx={{mt:3}}
             paragraph
             align="center"
           >
@@ -144,7 +158,7 @@ const Career = () => {
           >
             <Typography
               variant="h2"
-              color="textPrimary"
+              color="white"
               gutterBottom
               align="center"
             >
@@ -152,6 +166,8 @@ const Career = () => {
             </Typography>
             <form onSubmit={handleSubmit}>
               <TextField
+              
+              sx={{color: "white!important" ,backgroundColor: "#303030",borderRadius:"10px" }}
                 id="name"
                 name="name"
                 label="Name"
@@ -162,6 +178,7 @@ const Career = () => {
                 onChange={(e) => setName(e.target.value)}
               />
               <TextField
+              sx={{color: "white!important" ,backgroundColor: "#303030",borderRadius:"10px" }}
                 id="email"
                 name="email"
                 label="Email"
@@ -172,6 +189,7 @@ const Career = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
               <TextField
+              sx={{color: "white!important" ,backgroundColor: "#303030",borderRadius:"10px" }}
                 id="phone"
                 name="phone"
                 label="Phone Number"
@@ -183,6 +201,7 @@ const Career = () => {
                 onChange={(e) => setPhone(e.target.value)}
               />
               <TextField
+              sx={{color: "white!important" ,backgroundColor: "#303030",borderRadius:"10px" }}
                 id="career"
                 name="career"
                 select
@@ -205,6 +224,7 @@ const Career = () => {
                   sx={{ display: "flex", alignItems: "center", mb: 1 }}
                 >
                   <TextField
+                  sx={{color: "white!important" ,backgroundColor: "#303030",borderRadius:"10px" }}
                     id="cv"
                     label="Attach CV"
                     type="file"
@@ -233,6 +253,18 @@ const Career = () => {
                 color="primary"
                 type="submit"
                 fullWidth
+                sx={{
+                  backgroundColor: "#0ba7a2",
+                  border: "1px solid #303030",
+                  borderRadius: 13,
+                  padding:2,
+                  color: "white", 
+                  mt: 2,
+                  "&:hover": {
+                    backgroundColor: "white!important",
+                    color: "#0ba7a2",
+                  },
+                }}
               >
                 Submit
               </Button>

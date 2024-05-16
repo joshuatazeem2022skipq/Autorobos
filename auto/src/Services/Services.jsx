@@ -22,7 +22,9 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 // import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 // import { content, initialServicesData } from "./servicesData";
 import b1 from "../Images/Services/exp/Ai/ils_20.png";
-import BgImage from "../Images/Projects/p3.jpg"
+import BgImage1 from "../Images/bg7.jpg"
+import BgImage from "../Images/bg4.jpg"
+import BgImage2 from "../Images/bg8.jpg"
 import { useSelector } from "react-redux";
 // import b2 from "../Images/Services/exp/Services Content/A.jpg";
 import b3 from "../Images/Services/exp/Ai/shape_48.png";
@@ -179,7 +181,7 @@ const ServiceComponent = () => {
   return (
     <Box sx={{backgroundColor:"#0b0c10"}}>
 <Box sx={{
-         background: `linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(${BgImage})`,
+         background: ` url(${BgImage1})`,
         height: "60vh",
         mt:5,
         backgroundSize: "cover",
@@ -313,7 +315,7 @@ const ServiceComponent = () => {
     sx={{
       height: { md: 350, xs: 2360, sm: 1100 },
       minWidth: "100%",
-      background: `linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(${BgImage})`,
+      background: ` url(${BgImage})`,
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
       backgroundPosition: "center",
@@ -598,7 +600,7 @@ const ServiceComponent = () => {
                 <StyledCard>
                   <StyledCardMedia
                     component="img"
-                    src={content[activeServiceIndex].bgImage}
+                    src={content[activeServiceIndex].bgImage2}
                     alt="Specific Service"
                   />
                 </StyledCard>
@@ -675,7 +677,7 @@ const ServiceComponent = () => {
 <Box sx={{ backgroundColor: "#0b0c10", mb:1 }}>
       <Container
         sx={{
-          backgroundImage: `url(${BgImage})`,
+          backgroundImage: `url(${BgImage2})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           border: "1px solid #303030",
