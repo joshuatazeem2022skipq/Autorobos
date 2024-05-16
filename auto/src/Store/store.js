@@ -3,6 +3,12 @@ import { NotificationManager } from "react-notifications";
 // import { toast } from "react-toastify";
 // import { Toast } from "react-toastify/dist/components";
 import { combineReducers, createStore } from "redux";
+
+import b1 from "../Images/Projects/P1.jpg";
+import b2 from "../Images/Projects/p2.jpg";
+import b3 from "../Images/Projects/p3.jpg";
+import b4 from "../Images/Projects/p4.jpg";
+
 import R1 from "../Images/Analysis/person-1_rfzshl.jpg";
 import R2 from "../Images/Analysis/person-2_np9x5l.jpg";
 import R3 from "../Images/Analysis/person-3_ipa0mj.jpg";
@@ -565,6 +571,78 @@ function ProjectSection(oldData = ProjectsData, newData) {
 
   return oldData;
 }
+const BlogsData = {
+  blogs: [
+    {
+      id: 1,
+      image: b1,
+      heading: "Automation",
+      author: "Author Name 1",
+      date: "March 21, 2024",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et turpis eget neque ultrices feugiat vel at est.",
+    },
+    {
+      id: 2,
+      image: b2,
+      heading: "Internet of Things",
+      author: "Author Name 2",
+      date: "March 21, 2024",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et turpis eget neque ultrices feugiat vel at est.",
+    },
+    {
+      id: 3,
+      image: b3,
+      heading: "Embedded AI",
+      author: "Author Name 3",
+      date: "March 21, 2024",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et turpis eget neque ultrices feugiat vel at est.",
+    },
+    {
+      id: 4,
+      image: b4,
+      heading: "Web Development",
+      author: "Author Name 4",
+      date: "March 21, 2024",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et turpis eget neque ultrices feugiat vel at est.",
+    },
+    {
+      id: 5,
+      image: B2,
+      heading: "App Development",
+      author: "Author Name 5",
+      date: "March 21, 2025",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et turpis eget neque ultrices feugiat vel at est.",
+    },
+  ],
+};
+
+function BlogSection(oldData = BlogsData, newData) {
+  oldData = {
+    ...oldData,
+    products: [...oldData.blogs],
+    // orders: [...oldData.orders],
+  };
+  if (newData.type === "ADD_PRODUCT") {
+    oldData.products.push(newData.payload);
+    NotificationManager.success("Product added", "Added");
+  } else if (newData.type === "SEARCH_PRODUCT") {
+    oldData.searched = newData.payload;
+  } else if (newData.type === "TOGGLE_LIKED_BTN") {
+    let item = oldData.products.find((product) => product.id === newData.id);
+    item.abc = !item.abc;
+    NotificationManager.success("Liked");
+  } else if (newData.type === "ADDED_tO_CART") {
+    oldData.orders.push(newData.payload);
+    NotificationManager.success("Product added to cart", "Added");
+  }
+
+  return oldData;
+}
 
 let initialAuthSection = {
   loggedUser: null,
@@ -591,6 +669,7 @@ let allData = combineReducers({
   DiffSection,
   ServiceSection,
   CustomerSection,
+  BlogSection,
   CardSection,
   ServiceContentSection,
   ProjectSection,

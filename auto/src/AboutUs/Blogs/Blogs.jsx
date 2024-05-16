@@ -3,124 +3,95 @@ import {
   Card,
   CardContent,
   CardMedia,
+  Avatar,
+  CardActions,
   Container,Chip,
   Grid,
+  IconButton,
   Typography,
 
   Pagination,
 } from "@mui/material";
 import React, { useState } from "react";
-import B1 from "../../Images/Projects/P1.jpg";
-import B2 from "../../Images/Projects/p2.jpg";
-import B3 from "../../Images/Projects/p3.jpg";
-import B4 from "../../Images/Projects/p4.jpg";
+
 import BG from "../../Images/Aboutus/1jy.jpg";
 import { styled } from "@mui/system";
+import { useSelector } from "react-redux";
+import store from "../../Store/store";
 
 const Blogs = () => {
-  const blogsData = [
-    {
-      id: 1,
-      image: B1,
-      heading: "Automation",
-      author: "Author Name 1",
-      date: "March 21, 2024",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et turpis eget neque ultrices feugiat vel at est.",
-    },
-    {
-      id: 2,
-      image: B2,
-      heading: "Internet of Things",
-      author: "Author Name 2",
-      date: "March 21, 2024",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et turpis eget neque ultrices feugiat vel at est.",
-    },
-    {
-      id: 3,
-      image: B3,
-      heading: "Embedded AI",
-      author: "Author Name 3",
-      date: "March 21, 2024",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et turpis eget neque ultrices feugiat vel at est.",
-    },
-    {
-      id: 4,
-      image: B4,
-      heading: "Web Development",
-      author: "Author Name 4",
-      date: "March 21, 2024",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et turpis eget neque ultrices feugiat vel at est.",
-    },
-    {
-      id: 5,
-      image: B2,
-      heading: "App Development",
-      author: "Author Name 5",
-      date: "March 21, 2025",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et turpis eget neque ultrices feugiat vel at est.",
-    },
-  ];
 
-  const itemsPerPage = 4;
-  const [page, setPage] = useState(1);
-  const pageCount = Math.ceil(blogsData.length / itemsPerPage);
+  const [hoveredCard, setHoveredCard] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
 
+  const itemsPerPage = 4;
+
+  const [page, setPage] = useState(1);
+
+const blogsData= useSelector((store)=>store.BlogSection.blogs)
+
+  const pageCount = Math.ceil(blogsData.length / itemsPerPage);
   const handleChangePage = (event, value) => {
     setPage(value);
   };
 
-  const renderCards = () => {
-    const startIndex = (page - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const slicedData = blogsData.slice(startIndex, endIndex);
+ const renderCards = () => {
+  const startIndex = (page - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const slicedData = blogsData.slice(startIndex, endIndex);
 
-    return slicedData.map((blog, index) => (
-      <Grid
-        item
-        key={blog.id}
-        xs={12}
-        sm={index === 0 || index === 3 ? 6 : 4}
-        justifyContent="center"
+  return slicedData.map((blog, index) => (
+    <Grid item xs={12} sm={6} md={4.5} key={index}>
+      <Card
+        onMouseEnter={() => setHoveredCard(index)}
+        onMouseLeave={() => setHoveredCard(null)}
+        variant="outlined"
+        sx={{
+          backgroundImage: hoveredCard === index? `linear-gradient(to top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.9)),url(${blog.image})` : null,
+          backgroundSize:"cover",
+          height: "80%",
+          width: "450px",
+          boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+          borderRadius: "10px",
+          border: "2px solid #303030",
+          backgroundColor: "#0b0c10",
+          // transition: "transform 0.3s ease",
+          // transform: hoveredCard === index ? "scale(1.05)" : "scale(1)",
+          "&:hover": {
+            border: "2px solid #0ba7a2",
+            // transform: "scale(1.05)", // Apply transform only on hover
+          },
+        }}
       >
-        <Container>
-          <Card sx={{ display: "flex", height: 200, m: 1 }}>
+        <Box sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
+          {hoveredCard !== index && (
             <CardMedia
               component="img"
               sx={{
-                width: index === 0 || index === 3 ? 200 : 140,
-                maxWidth: "100%",
-                transition: "transform 0.3s ease-in-out",
-                transform: isHovered ? "scale(1.1)" : "scale(1)",
+                height: "80%",
+                width: "100%",
+                objectFit: "cover",
               }}
               image={blog.image}
               alt={blog.heading}
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
             />
-
-            <CardContent sx={{ flex: 1 }}>
-              <Typography gutterBottom variant="h5" component="div">
-                {blog.heading}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                <span>{blog.author}</span>
-                <span style={{ marginLeft: "auto" }}>{blog.date}</span>
-              </Typography>
-              <Typography variant="body1" component="p">
+          )}
+          <CardContent sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
+            <Typography variant="h6" sx={{ color: "white", mb: 1 }}>
+              {blog.heading}
+            </Typography>
+            {hoveredCard === index && (
+              <Typography variant="body2" sx={{ color: "grey", flexGrow: 1 }}>
                 {blog.description}
               </Typography>
-            </CardContent>
-          </Card>
-        </Container>
-      </Grid>
-    ));
-  };
+            )}
+          </CardContent>
+        </Box>
+      </Card>
+    </Grid>
+  ));
+};
+
 
   return (
     <div

@@ -14,7 +14,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import BgImage from "../Images/Projects/13.jpg";
-import P11 from "../Images/bg5.jpg";
+import P11 from "../Images/bg6.avif";
 
 import ListIcon from "@mui/icons-material/List";
 import { styled } from "@mui/system";
@@ -119,14 +119,14 @@ const Project = () => {
 
   const startIndex = (page - 1) * projectsPerPage;
   const endIndex = page * projectsPerPage;
-
+ 
   const currentProjects = filteredProjects.slice(startIndex, endIndex);
 
   return (
     <>
       <Box
         sx={{
-          backgroundImage: ` url(${P11})`,
+          backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.9)), url(${P11})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           minHeight: { md: "60vh", xs: "100vh" },

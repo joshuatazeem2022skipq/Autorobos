@@ -244,6 +244,17 @@ borderRadius: 13,
                           <CancelIcon />
                         </IconButton>
                       ),
+                      style: {
+                        color: "blue", // Change color of text (e.g., "Choose File")
+                        backgroundColor: "#303030",
+                        borderRadius: "10px",
+                        "&:hover": {
+                          backgroundColor: "#0ba7a2", // Change hover color if needed
+                        },
+                      },
+                      inputProps: {
+                        style: { color: "transparent" }, // Hide text inside input
+                      }, 
                     }}
                   />
                 </Box>
