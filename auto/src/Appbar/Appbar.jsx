@@ -202,7 +202,7 @@ const MyAppBar = () => {
                         getContentAnchorEl={null}
                         open={Boolean(anchorEl === button.id)}
                         onClose={() => setAnchorEl(null)}
-                        sx={{ ml: -42, mt: 6 }}
+                        sx={{ ml: -68, mt: 9 }}
                       >
                         {button.options.map((option) => (
                           <MenuItem

@@ -27,7 +27,7 @@ const ContactInformation = () => {
       .required("Email is required"),
     phone: Yup.string().required("Phone is required"),
     subject: Yup.string().required("Subject is required"),
-    description: Yup.string(10).required("Description is required"),
+    description: Yup.string().required("Description is required"),
   });
 
   const onSubmit = async (values, { resetForm }) => {
@@ -79,17 +79,22 @@ const ContactInformation = () => {
           backgroundImage: `url(${bg})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
-          py: 4,
+          py: { xs: 2, md: 4 },
+          px: { xs: 2, md: 6 },
         }}
       >
-        <Grid container spacing={4}>
+        <Grid container spacing={2}>
           <Grid
             item
             xs={12}
             sm={5}
-            sx={{ textAlign: "left", pl: { sm: 4 }, m: 10 }}
+            sx={{
+              textAlign: "center",
+              pl: { sm: 4 },
+              mb: { xs: 2, sm: 0 },
+            }}
           >
-            <Typography variant="h4" color={"#0ba7a2"} gutterBottom>
+            <Typography variant="h4" color="#0ba7a2" gutterBottom>
               <Box display="flex" alignItems="center">
                 <Divider
                   orientation="vertical"
@@ -102,17 +107,16 @@ const ContactInformation = () => {
                     border: "2px solid black",
                   }}
                 />
-                
                 Contact with AUTOROBS
               </Box>
             </Typography>
-            <Typography variant="body1" paragraph sx={{ mb: 2,color: "#303030" }}>
+            <Typography variant="body1" sx={{ mb: 2, color: "#303030" }}>
               We would be happy to answer any questions and explore how our
               services can support your business. If you tell us a bit about
               your interests, we’ll make sure we get you the best contact person
               on our end.
             </Typography>
-            <Typography variant="body1" sx={{ mb: 2 ,color: "#303030"}}>
+            <Typography variant="body1" sx={{ mb: 2, color: "#303030" }}>
               If you’d like to talk to someone now, give us a call at
               <strong>(+92) 321 786 4079</strong>.
             </Typography>
@@ -131,8 +135,8 @@ const ContactInformation = () => {
                 touched,
               }) => (
                 <Form onSubmit={handleSubmit}>
-                  <Grid container spacing={2} mt={3}>
-                    <Grid item xs={12} sm={12} md={6}>
+                  <Grid container spacing={2}>
+                    <Grid item xs={12} md={6}>
                       <TextField
                         id="name"
                         name="name"
@@ -147,7 +151,7 @@ const ContactInformation = () => {
                         helperText={touched.name && errors.name}
                       />
                     </Grid>
-                    <Grid item xs={12} sm={12} md={6}>
+                    <Grid item xs={12} md={6}>
                       <TextField
                         id="email"
                         name="email"
@@ -163,27 +167,31 @@ const ContactInformation = () => {
                       />
                     </Grid>
 
-                    <Grid item xs={12} >
-                      <TextField
-                        id="phone"
-                        name="phone"
+                    <Grid item xs={12} md={6}>
+                      <PhoneInput
+                        country={"us"}
                         value={values.phone}
-                        onChange={(val) => {
-                          handleChange({
-                            target: { name: "phone", value: val },
-                          });
-                        }}
+                        onChange={(phone) =>
+                          handleChange({ target: { name: "phone", value: phone } })
+                        }
                         onBlur={handleBlur}
-                        variant="filled"
-                        label="Phone *"
-                        fullWidth
-                        sx={{ mb: 2 }}
-                        error={touched.phone && !!errors.phone}
-                        helperText={touched.phone && errors.phone}
-                        InputProps={{
-                          inputComponent: PhoneInput,
+                        inputStyle={{
+                          padding: "12px",
+                          borderRadius: "8px",
+                          border: "1px solid #ced4da",
+                          width: "100%",
+                          fontSize: "1rem",
+                          lineHeight: "1.5",
+                          color: "#495057",
                         }}
+                        containerStyle={{ width: "100%" }}
+                        inputProps={{ required: true }}
                       />
+                      {touched.phone && errors.phone && (
+                        <Typography variant="body2" color="error">
+                          {errors.phone}
+                        </Typography>
+                      )}
                     </Grid>
                     <Grid item xs={12}>
                       <TextField
@@ -222,12 +230,12 @@ const ContactInformation = () => {
                     </Grid>
                   </Grid>
 
-                  <Box sx={{ width: "100%" }}>
+                  <Box sx={{ width: "100%", textAlign: "center" }}>
                     <Button
                       variant="contained"
                       color="primary"
                       type="submit"
-                      sx={{ mt: 2 , backgroundColor:"#0ba7a2" , padding: 1, borderRadius:"18px", width:"90px" }}
+                      sx={{ mt: 2, borderRadius: "18px" }}
                     >
                       Submit
                     </Button>

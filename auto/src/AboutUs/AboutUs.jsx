@@ -7,7 +7,7 @@ import {
   Card,
   CardContent,
 } from "@mui/material";
-import V2 from "../Images/Aboutus/jy.jpg";
+import V2 from "../Images/bg10.avif";
 import Card1Image from "../Images/Aboutus/P3/plexus-abstract-object-07-removebg-preview.png";
 import Card2Image from "../Images/Aboutus/P3/plexus-abstract-object-08-removebg-preview.png";
 import Card3Image from "../Images/Aboutus/P3/plexus-abstract-object-16-removebg-preview.png";

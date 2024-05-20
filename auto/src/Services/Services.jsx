@@ -104,7 +104,7 @@ const StyledCardMedia = styled(CardMedia)({
   },
 });
 
-const ServiceComponent = () => {
+const  ServiceComponent = () => {
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
   const intialServicesData = useSelector((store)=>store.ServiceSection.initialServicesData)
   const [servicesData, setServicesData] = useState(intialServicesData);
@@ -313,7 +313,7 @@ const ServiceComponent = () => {
     
             <Box
     sx={{
-      height: { md: 350, xs: 2360, sm: 1100 },
+      height: { md: 350, xs: 360, sm: 1100 },
       minWidth: "100%",
       background: ` url(${BgImage})`,
       backgroundSize: "cover",

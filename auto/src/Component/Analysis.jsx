@@ -43,7 +43,7 @@ const Analysis = () => {
               image={A1}
               sx={{
                 height: { md: "100%", xs: "90%" },
-                width: { md: "75%", xs: "85%" },
+                width: { md: "75%", xs: "80%" },
                 position: "absolute",
                 top: 0,
                 left: { xs: "19%" },

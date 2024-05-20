@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import A3 from "../Images/Aboutus/P3/plexus-abstract-object-08-removebg-preview.png";
-import V2 from "../Images/Aboutus/1jy.jpg";
+import V2 from "../Images/bg12.jpg";
 
 const AboutMission = () => {
   const parallaxRef = useRef(null);

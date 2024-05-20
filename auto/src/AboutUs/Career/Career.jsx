@@ -102,7 +102,7 @@ const Career = () => {
       <Box
         sx={{
           backgroundColor: "#0b0c10",
-          color:"white!important",
+          color: "white!important",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -111,34 +111,33 @@ const Career = () => {
       >
         <Box
           sx={{
-            padding: "20px",
+            padding: { xs: "10px", md: "20px" },
             maxWidth: "80%",
             margin: "auto",
           }}
         >
-           <Chip
-                              label="Our Blogs"
-                              variant="outlined"
-                              sx={{
-                                backgroundColor: "transpparent",
-                                color: "#0ba7a2",
-                                border: "1px solid #303030",
-                                padding : 3,
-                                alignItems: "center",
-                                fontWeight: "bold",
-                                alignContent: "center",
-                                justifyContent: "center",
-                                ml:58,
-borderRadius: 13,
-                                letterSpacing: 1.5,
-                                mt: 9,
-                                filter: "brightness(150%)",
-                              }}
-                            />
+          <Chip
+            label="Careers"
+            variant="outlined"
+            sx={{
+              backgroundColor: "transparent",
+              color: "#0ba7a2",
+              border: "1px solid #303030",
+              padding: "10px",
+              alignItems: "center",
+              fontWeight: "bold",
+              alignContent: "center",
+              justifyContent: "center",
+              borderRadius: "17px",
+              letterSpacing: "1.5px",
+              mt: { xs: "20px", md: "9px" },
+              filter: "brightness(150%)",
+            }}
+          />
           <Typography
             variant="body1"
             color="white"
-            sx={{mt:3}}
+            sx={{ mt: { xs: "20px", md: "3px" } }}
             paragraph
             align="center"
           >
@@ -148,11 +147,11 @@ borderRadius: 13,
             Engineering.
           </Typography>
           <Box
-            mt={4}
+            mt={{ xs: "20px", md: "40px" }}
             width="100%"
             sx={{
               padding: "20px",
-              maxWidth: "600px",
+              maxWidth: { xs: "100%", md: "600px" },
               margin: "auto",
             }}
           >
@@ -166,8 +165,7 @@ borderRadius: 13,
             </Typography>
             <form onSubmit={handleSubmit}>
               <TextField
-              
-              sx={{color: "white!important" ,backgroundColor: "#303030",borderRadius:"10px" }}
+                sx={{ color: "white!important", backgroundColor: "#303030", borderRadius: "10px" }}
                 id="name"
                 name="name"
                 label="Name"
@@ -178,7 +176,7 @@ borderRadius: 13,
                 onChange={(e) => setName(e.target.value)}
               />
               <TextField
-              sx={{color: "white!important" ,backgroundColor: "#303030",borderRadius:"10px" }}
+                sx={{ color: "white!important", backgroundColor: "#303030", borderRadius: "10px" }}
                 id="email"
                 name="email"
                 label="Email"
@@ -189,7 +187,7 @@ borderRadius: 13,
                 onChange={(e) => setEmail(e.target.value)}
               />
               <TextField
-              sx={{color: "white!important" ,backgroundColor: "#303030",borderRadius:"10px" }}
+                sx={{ color: "white!important", backgroundColor: "#303030", borderRadius: "10px" }}
                 id="phone"
                 name="phone"
                 label="Phone Number"
@@ -201,7 +199,7 @@ borderRadius: 13,
                 onChange={(e) => setPhone(e.target.value)}
               />
               <TextField
-              sx={{color: "white!important" ,backgroundColor: "#303030",borderRadius:"10px" }}
+                sx={{ color: "white!important", backgroundColor: "#303030", borderRadius: "10px" }}
                 id="career"
                 name="career"
                 select
@@ -224,7 +222,7 @@ borderRadius: 13,
                   sx={{ display: "flex", alignItems: "center", mb: 1 }}
                 >
                   <TextField
-                  sx={{color: "white!important" ,backgroundColor: "#303030",borderRadius:"10px" }}
+                    sx={{ color: "white!important", backgroundColor: "#303030", borderRadius: "10px" }}
                     id="cv"
                     label="Attach CV"
                     type="file"
@@ -245,16 +243,16 @@ borderRadius: 13,
                         </IconButton>
                       ),
                       style: {
-                        color: "blue", // Change color of text (e.g., "Choose File")
+                        color: "blue",
                         backgroundColor: "#303030",
                         borderRadius: "10px",
                         "&:hover": {
-                          backgroundColor: "#0ba7a2", // Change hover color if needed
+                          backgroundColor: "#0ba7a2",
                         },
                       },
                       inputProps: {
-                        style: { color: "transparent" }, // Hide text inside input
-                      }, 
+                        style: { color: "transparent" },
+                      },
                     }}
                   />
                 </Box>
@@ -268,8 +266,8 @@ borderRadius: 13,
                   backgroundColor: "#0ba7a2",
                   border: "1px solid #303030",
                   borderRadius: 13,
-                  padding:2,
-                  color: "white", 
+                  padding: 2,
+                  color: "white",
                   mt: 2,
                   "&:hover": {
                     backgroundColor: "white!important",

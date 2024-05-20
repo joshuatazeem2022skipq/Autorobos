@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
+
 const Footer = () => {
   const navigate = useNavigate();
 
@@ -34,52 +35,45 @@ const Footer = () => {
   return (
     <Box
       sx={{
-        mt:18,
-         backgroundColor: "#0b0c10",
+        mt: 18,
+        backgroundColor: "#0b0c10",
         color: "white",
         py: 4,
-        display: "flex",
-
-        justifyContent: "center",
-        // border: "1px solid white",
       }}
     >
       <Container maxWidth="lg">
-       
-
-        
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm={6} md={3}>
-            <Box pr={2}>
-              <img src={Logo} alt="Company Logo" style={{ width: "40%" , ml: "15px" }} />
+        <Grid container spacing={2} justifyContent="center">
+          <Grid item xs={12} md={6} lg={3}>
+            <Box textAlign={{ xs: "center", md: "left" }}>
+              <img src={Logo} alt="Company Logo" style={{ width: "40%" }} />
               <Typography fontWeight="medium" variant="body1" paragraph color="white">
-                More than a Software House   
+                More than a Software House
               </Typography>
             </Box>
           </Grid>
 
-          <Grid item xs={12} sm={6} md={3}>
-            <Box pl={1}>
+          <Grid item xs={12} md={6} lg={3}>
+            <Box>
               <Typography fontWeight="bold" color="white" variant="h6" gutterBottom>
                 Contact Us
               </Typography>
               <Typography fontWeight="bold" color="whitesmoke" component="div" display="block">
-              <LocationOnOutlinedIcon  sx={{color: "#0ba7a2"}}/>  Office 131 1st Floor, Center Point Plaza Kohinoor, Faisalabad.
+                <LocationOnOutlinedIcon sx={{ color: "#0ba7a2" }} /> Office 131 1st Floor, Center Point Plaza Kohinoor, Faisalabad.
               </Typography>
-              <Typography fontWeight="bold"  color="whitesmoke"  component="div" display="block">
-                <LocalPhoneOutlinedIcon sx={{color: "#0ba7a2"}}/> (+92) 321 786 4079
+              <Typography fontWeight="bold" color="whitesmoke" component="div" display="block">
+                <LocalPhoneOutlinedIcon sx={{ color: "#0ba7a2" }} /> (+92) 321 786 4079
               </Typography>
-              <Typography fontWeight="bold" color="whitesmoke"  component="div" display="block">
-                <MailOutlineOutlinedIcon sx={{color: "#0ba7a2"}}/> sales@autorobos.com
+              <Typography fontWeight="bold" color="whitesmoke" component="div" display="block">
+                <MailOutlineOutlinedIcon sx={{ color: "#0ba7a2" }} /> sales@autorobos.com
               </Typography>
-              <Typography fontWeight="bold" color="whitesmoke"  component="div" display="block">
-                <CalendarMonthOutlinedIcon sx={{color: "#0ba7a2"}}/> Monday to Friday
+              <Typography fontWeight="bold" color="whitesmoke" component="div" display="block">
+                <CalendarMonthOutlinedIcon sx={{ color: "#0ba7a2" }} /> Monday to Friday
               </Typography>
             </Box>
           </Grid>
 
-          <Grid item xs={12} sm={6} md={3}>
-            <Box sx={{ px: { xs: 1, md: 8 } }}>
+          <Grid item xs={12} md={6} lg={3}>
+            <Box>
               <Typography fontWeight="bold" color="white" variant="h6" gutterBottom>
                 Quick Links
               </Typography>
@@ -90,9 +84,9 @@ const Footer = () => {
                 sx={{
                   cursor: "pointer",
                   fontWeight: "bold",
-                  color:"whitesmoke",
+                  color: "whitesmoke",
                   "&:hover": {
-                    color:"#0ba7a2",
+                    color: "#0ba7a2",
                     transition: "color 0.3s ease",
                   },
                 }}
@@ -104,11 +98,11 @@ const Footer = () => {
                 paragraph
                 onClick={handleAboutUs}
                 sx={{
-                  color:"whitesmoke",
+                  color: "whitesmoke",
                   cursor: "pointer",
                   fontWeight: "bold",
                   "&:hover": {
-                    color:"#0ba7a2",
+                    color: "#0ba7a2",
                     transition: "color 0.3s ease",
                   },
                 }}
@@ -120,11 +114,11 @@ const Footer = () => {
                 paragraph
                 onClick={handleProjects}
                 sx={{
-                  color:"whitesmoke",
+                  color: "whitesmoke",
                   cursor: "pointer",
                   fontWeight: "bold",
                   "&:hover": {
-                    color:"#0ba7a2",
+                    color: "#0ba7a2",
                     transition: "color 0.3s ease",
                   },
                 }}
@@ -136,11 +130,11 @@ const Footer = () => {
                 paragraph
                 onClick={handleContactUs}
                 sx={{
-                  color:"whitesmoke",
+                  color: "whitesmoke",
                   cursor: "pointer",
                   fontWeight: "bold",
                   "&:hover": {
-                    color:"#0ba7a2",
+                    color: "#0ba7a2",
                     transition: "color 0.3s ease",
                   },
                 }}
@@ -150,8 +144,8 @@ const Footer = () => {
             </Box>
           </Grid>
 
-          <Grid item xs={12} sm={6} md={3}>
-            <Box px={1} >
+          <Grid item xs={12} md={6} lg={3}>
+            <Box>
               <Typography fontWeight="bold" color="white" variant="h6" gutterBottom>
                 Our Services
               </Typography>
@@ -160,30 +154,29 @@ const Footer = () => {
                 display="block"
                 onClick={handleservices}
                 sx={{
-                  m:1,
-                  color:"whitesmoke",
+                  m: 1,
+                  color: "whitesmoke",
                   cursor: "pointer",
                   fontWeight: "bold",
                   "&:hover": {
-                    color:"#0ba7a2",
+                    color: "#0ba7a2",
                     transition: "color 0.3s ease",
                   },
                 }}
               >
                 Robotics
               </Typography>
-                
               <Typography
                 component="div"
                 display="block"
                 onClick={handleservices}
                 sx={{
-                  m:1,
-                  color:"whitesmoke",
+                  m: 1,
+                  color: "whitesmoke",
                   cursor: "pointer",
                   fontWeight: "bold",
                   "&:hover": {
-                    color:"#0ba7a2",
+                    color: "#0ba7a2",
                     transition: "color 0.3s ease",
                   },
                 }}
@@ -195,12 +188,12 @@ const Footer = () => {
                 display="block"
                 onClick={handleservices}
                 sx={{
-                  m:1,
-                  color:"whitesmoke",
+                  m: 1,
+                  color: "whitesmoke",
                   cursor: "pointer",
                   fontWeight: "bold",
                   "&:hover": {
-                    color:"#0ba7a2",
+                    color: "#0ba7a2",
                     transition: "color 0.3s ease",
                   },
                 }}
@@ -212,12 +205,12 @@ const Footer = () => {
                 display="block"
                 onClick={handleservices}
                 sx={{
-                  m:1,
-                  color:"whitesmoke",
+                  m: 1,
+                  color: "whitesmoke",
                   cursor: "pointer",
                   fontWeight: "bold",
                   "&:hover": {
-                    color:"#0ba7a2",
+                    color: "#0ba7a2",
                     transition: "color 0.3s ease",
                   },
                 }}
@@ -226,55 +219,37 @@ const Footer = () => {
               </Typography>
             </Box>
           </Grid>
-
-        
         </Grid>
 
-        <Divider
-          sx={{ width: "100%", borderBottom: "1px solid GrayText", mb: 3,mt:10 }}
-        />
+        <Divider sx={{ width: "100%", borderBottom: "1px solid GrayText", mb: 3, mt: 6 }} />
 
-      
-        <Box gap={4} sx={{ display: "flex", justifyContent: "flex-start", mt: 4 }}>
-        <Typography variant="body2" align="start">
-           Privacy Policy
+        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 4 }}>
+          <Typography variant="body2" align="start">
+            Privacy Policy
           </Typography>
-           <Typography variant="body2" align="center">
-           Terms of use
+          <Typography variant="body2" align="start">
+            Terms of use
           </Typography>
-          <Typography variant="body2" align="center">
+          <Typography variant="body2" align="start">
             © 2024 Copyright: autorobos.com
           </Typography>
-        </Box>
-
-          <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <Box
-              sx={{
-                display: "flex",
-                
-                alignItems: "center",
-              }}
-            >
-              <Typography variant="body1" gutterBottom align="center">
-                Get connected with us on social networks:
-              </Typography>
-              <Box sx={{ display: "flex", gap: 2, mt: 2, mb: 2, ml:70 }}>
-                <Link href="#" color="#0ba7a2">
-                  <Facebook />
-                </Link>
-                
-                <Link href="#" color="#0ba7a2">
-                  <LinkedIn />
-                </Link>
-                <Link href="#" color="#0ba7a2">
-                  <Instagram />
-                </Link>
-              </Box>
+          <Box sx={{ display: "flex", gap: 2 }}>
+            <Typography variant="body1" gutterBottom align="start">
+              Get connected with us on social networks:
+            </Typography>
+            <Box sx={{ display: "flex", gap: 2 }}>
+              <Link href="#" color="#0ba7a2">
+                <Facebook />
+              </Link>
+              <Link href="#" color="#0ba7a2">
+                <LinkedIn />
+              </Link>
+              <Link href="#" color="#0ba7a2">
+                <Instagram />
+              </Link>
             </Box>
-          </Grid>
-        
-        </Grid>
+          </Box>
+        </Box>
       </Container>
     </Box>
   );

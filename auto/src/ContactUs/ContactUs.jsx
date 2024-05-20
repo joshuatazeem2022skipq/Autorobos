@@ -57,8 +57,7 @@ const ContactPage = () => {
       <Container>
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>
-            <Box sx={{ textAlign: "center", py: { xs: 15, md: 23 } }}>
-             
+            <Box sx={{ textAlign: "center", py: { xs: 9, md: 10 } }}>
               <Typography
                 variant="h4"
                 align="left"
@@ -70,16 +69,14 @@ const ContactPage = () => {
                 variant="h4"
                 sx={{
                   color: "#fff",
-                  
                   mb: 2,
                   border: "2px solid #303030",
-                  width :"40%",
-                  ml: 20,
-                  borderRadius: "15px",
+                  width: "210px",
+                  borderRadius: "22px",
                   boxShadow: "0 12px 14px rgba(0, 0, 0, 0.6)",
-                  p: "10px",
+                  p: "3px",
                   "&:hover": {
-                    backgroundColor: "#0ba7a2"
+                    backgroundColor: "#0ba7a2",
                   },
                 }}
               >
@@ -97,7 +94,7 @@ const ContactPage = () => {
               sx={{
                 textAlign: "center",
                 py: 2,
-                mt: { xs: -7, md: 13 },
+                mt: { xs: -7, md: 5 },
                 ml: { md: 9, xs: 0 },
               }}
             >
@@ -123,7 +120,7 @@ const ContactPage = () => {
                   }}
                 >
                   <CardContent>
-                    <Box sx={{ textAlign: "center"  , color: "#0ba7a2"}}>
+                    <Box sx={{ textAlign: "center", color: "#0ba7a2" }}>
                       {detail.icon}
                       <Typography
                         variant="h6"
