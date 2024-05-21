@@ -70,128 +70,52 @@ const QAComponent = () => {
           py: 4,
         }}
       >
-        <Grid container sx={{ mt: 0 }}>
-          <Grid item xs={12} md={6}>
-            <Chip
-              label="QUESTIONS & ANSWERS"
-              variant="outlined"
-              sx={{
-                backgroundColor: "transpparent",
-                color: "#0ba7a2",
-                border: "1px solid #303030",
-                padding: 3,
-                fontWeight: "bold",
-                borderRadius: 13,
-                letterSpacing: 1.5,
-                filter: "brightness(150%)",
-              }}
-            />
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Container
-                sx={{
-                  ml: { xs: 2, md: 0 },
-                  width: { md: "100%", xs: "95%" },
-                }}
-              >
-                <Typography
-                  variant="h2"
-                  align="left"
-                  sx={{
-                    mt: 2,
-                    fontFamily: "inherit",
-                    fontWeight: 500,
-                    color: "white",
-                    width: { md: "80%", xs: "90%" },
-                  }}
-                >
-                  Any Questions?
-                </Typography>
-                <Typography
-                  variant="h2"
-                  align="left"
-                  sx={{
-                    fontFamily: "inherit",
-                    fontWeight: 500,
-                    color: "white",
-                    width: { md: "70%", xs: "90%" },
-                  }}
-                >
-                  Find here.
-                </Typography>
-                <Typography
-                  variant="body1"
-                  align="left"
-                  sx={{
-                    mt: 1,
-                    fontFamily: "inherit",
-                    fontWeight: 320,
-                    width: { md: "50%", xs: "70%" },
-                    color: "GrayText",
-                  }}
-                >
-                  Don’t find your answer here? Just send us a message for any
-                  query.
-                </Typography>
-
-                <Box sx={{ display: "flex", justifyContent: "flex-start", mt: 5 }}>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    href="#ContactForm"
-                    size="large"
-                    onClick={handleClickContact}
-                    sx={{
-                      backgroundColor: "#0ba7a2",
-                      border: "2px solid #303030",
-                      borderRadius: 13,
-                      "&:hover": {
-                        backgroundColor: "white!important",
-                        color: "#0ba7a2",
-                      },
-                    }}
-                  >
-                    Contact Us
-                  </Button>
-                </Box>
-              </Container>
-            </Box>
-          </Grid>
-
-          <Grid item xs={12} md={6}>
-            {topics.map((topic, index) => (
-              <Container key={index}>
-                <Accordion
-                  expanded={expanded === `panel${index}`}
-                  onChange={handleChange(`panel${index}`)}
-                  sx={{
-                    mt: 2,
-                    border: "1px solid #303030",
-                    backgroundColor: "#bab7c6",
-                    color: "black",
-                    width: { md: "85%", xs: "100%" },
-                    borderRadius: "7px!important",
-                  }}
-                >
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
-                    aria-controls={`panel${index + 1}-content`}
-                    id={`panel${index + 1}-header`}
-                  >
-                    <Typography variant="body1">{topic.title}</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography>{topic.content}</Typography>
-                  </AccordionDetails>
-                </Accordion>
-              </Container>
-            ))}
-          </Grid>
+           <Grid container sx={{ mt: 0 }}>
+        <Grid container alignItems="center" justifyContent="center">
+      <Grid item xs={12} sm={8} md={12} sx={{mt:3}} alignItems="center" textAlign="center">
+      <Grid item>
+                          <Chip
+                              label="Questions & Answers"
+                              variant="outlined"
+                              sx={{
+                                backgroundColor: "transpparent",
+                                color: "#0ba7a2",
+                                border: "1px solid #303030",
+                                padding : 3,
+                                fontWeight: "bold",
+borderRadius: 13,
+                                letterSpacing: 1.5,
+                                mt: 5,
+                                filter: "brightness(150%)",
+                              }}
+                            />
+                          </Grid>
+        <Typography variant="h3" fontWeight="bold" sx={{ color: "white", textAlign: "center"}}>
+          Any Questions?
+          <br></br>Find Here!
+        </Typography>
+        <Typography variant="body1" sx={{ color: "grey",mt:3 }}>
+        Don’t find your answer here? Just send us a message for any query.
+        </Typography>
+        <Button
+          sx={{
+            backgroundColor: "#0ba7a2",
+            border: "1px solid #303030",
+            borderRadius: 13,
+            padding:2,
+            color: "white", 
+            mt: 2,
+            "&:hover": {
+              backgroundColor: "white!important",
+              color: "#0ba7a2",
+            },
+          }}
+        >
+            Contact Us
+        </Button>
+      </Grid>
+    </Grid>
+          
         </Grid>
       </Container>
     </Box>

@@ -39,7 +39,7 @@ const Review = () => {
       <Box
         sx={{
           position: "relative",
-          minHeight: { xs: "100vh", md: "150vh", sm: "100vh" },
+          minHeight: { xs: "130vh", md: "150vh", sm: "100vh" },
           overflow: "hidden",
          
           mb: { md: 10, xs: 0, sm: 0 },

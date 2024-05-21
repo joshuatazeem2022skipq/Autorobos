@@ -7,7 +7,7 @@ const MainPage = () => {
   const data = useSelector((store) => store.DiffSection.Diffs);
 
   return (
-    <Box sx={{ backgroundColor: "#0b0c10", mt: { md: 0, sm: -11, xs: 0 } }}>
+    <Box sx={{ backgroundColor: "#0b0c10", height: {md:"1100px"},mt: { md: 0, sm: -11, xs: 0 } }}>
       <Box sx={{}}>
         <Chip
           label="About Us"
@@ -47,6 +47,7 @@ const MainPage = () => {
                         marginTop: {md : index === 3 ? -25 : 0},
                         border: "2px solid #303030",
                         color: "white",
+                        borderRadius:5  ,
                         padding: 2,
                         position: "relative",
                         "&:hover": {
